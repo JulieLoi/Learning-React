@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Karla:wght@400;700&family=Righteous&display=swap');
+
+@value values: "./colors.css";
+@value rf-black, rf-white, rf-d-blue, rf-l-blue, rf-d-toggler-txt, rf-l-toggler-txt from values;
+
+/* ---React Facts Page Body--- */
+.body {
+    min-height: 100vh;
+    height: 100%;
+    font-family: "Inter", sans-serif;
+}
+
+.body__dark {
+    background-color: rf-black;
+    color: rf-white;
+}
+
+.body__light {
+    background-color: rf-white;
+    color: rf-black;
+}
+
+/* ---Navbar Component--- */
+.nav {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    z-index: 1;
+}
+
+.nav__dark {
+    background-color: #21222A;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.nav__light {
+    background-color: #e7e7e7;
+    box-shadow: 0px 0.5rem 2rem rgba(111, 111, 111, 0.25);
+}
+
+.nav__logo {
+    width: 3rem;
+    margin-right: 1rem;
+}
+
+.nav__title {
+    margin: 0;
+    font-size: 2rem;
+    margin-right: auto;
+}
+
+.nav__title-dark {
+    color: rf-l-blue;
+}
+
+.nav__title-light {
+    color: rf-d-blue;
+}
+
+/* Light/Dark Mode Toggler */
+.toggler {
+    display: flex;
+    align-items: center;
+}
+
+.toggler__text {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.toggler__dark .toggler__text-dark {
+    color: rf-d-toggler-txt;
+}
+
+.toggler__light .toggler__text-light {
+    color: rf-l-toggler-txt;
+}
+
+.toggler__text-underline {
+    text-decoration: underline;
+}
+
+.toggler__slider {
+    display: flex;
+    align-items: center;
+    width: 4rem;
+    height: 2rem;
+    
+    margin-inline: 0.5rem;
+    border-radius: 2rem;
+    box-sizing: content-box;
+    cursor: pointer;
+}
+
+.toggler__slider-circle {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.toggler__dark .toggler__slider {
+    background-color: rf-white;
+    border: 0.1rem solid rf-d-toggler-txt;
+    justify-content: flex-end;
+}
+
+.toggler__dark .toggler__slider .toggler__slider-circle {
+    background-color: rf-black;
+}
+
+.toggler__light .toggler__slider {
+    background-color: rf-black;
+    border: 0.1rem solid rf-l-toggler-txt;
+    justify-content: flex-start;
+}
+
+.toggler__light .toggler__slider .toggler__slider-circle {
+    background-color: rf-white;
+}
+
+
+/* ---Main Content Component--- */
+.main {
+    flex: 1 1 auto;
+    padding: 3rem 2rem;
+    background: url("/public/images/ReactFacts/react-logo-side.png") no-repeat right center;
+    background-size: 15rem;
+}
+
+.main__title {
+    margin: 0;
+    font-size: 4rem;
+    letter-spacing: -0.05em;
+}
+
+.main__facts li {
+    font-size: 1.25rem;
+    padding-block: 0.5rem;
+}
+
+.main__facts li::marker {
+    font-size: 2rem;
+}
+
+.main__dark .main__facts li::marker {
+    color: rf-l-blue;
+}
+
+.main__light .main__facts li::marker {
+    color: rf-d-blue;
+}
+
