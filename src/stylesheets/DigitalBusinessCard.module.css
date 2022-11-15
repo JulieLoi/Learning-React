@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;700&family=Passion+One:wght@900&display=swap');
+
+/* ---Form Component--- */
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Oswald', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Digital Business Card Page */
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #F0ECFF;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Oswald', sans-serif;
+}
+
+.card {
+    background: #272727e6;
+    border: 0.25rem white solid;
+    border-radius: 1.5rem;
+    box-shadow: 0px 0px 4rem 1rem grey;
+    padding: 2rem 4rem;
+    margin: 2rem;
+}
+
+
+/* ---Information Component--- */
+.info {
+    text-align: center;
+}
+
+.info__image {
+    height: 7rem;
+}
+
+.info__name {
+    font-weight: 700;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.info__position {
+    color: #d7c844;
+    font-weight: 300;
+    font-size: 1.25rem;
+    letter-spacing: 0.5;
+    padding-bottom: 0.25rem;
+    margin: 0;
+}
+
+.info__personal-link {
+    font-weight: 200;
+    font-size: 1rem;
+    letter-spacing: -1;
+    padding-bottom: 0.25rem;
+    margin: 0;
+}
+
+.info__personal-enabled, .info__personal-enabled:visited {
+    text-decoration: none;
+    color: white;
+}
+
+.info__personal-enabled:hover {
+    font-weight: bold;
+    transform: scale(1.05);
+}
+
+.info__personal-disabled {
+    pointer-events: none;
+}
+
+.btn-box {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-box__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+    margin: 0.25rem;
+
+    border: 0.1rem black solid;
+    border-radius: 1rem;
+    outline: none;
+    overflow: hidden;
+    
+    background: rgb(69, 156, 209);
+    cursor: pointer;
+}
+
+.btn-box__button:hover {
+    background: rgb(54, 120, 161);
+}
+
+.btn-box__button span {
+    color: whitesmoke;
+    font-family: 'Passion', sans-serif;
+    font-size: 1rem;
+    font-weight: 900;
+    -webkit-text-stroke: 0.05rem black;
+}
+
+.btn-box__img {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    padding: 0rem 0.05rem;
+}
+
+
+/* ---About Component--- */
+.about h2, .interests h2 {
+    font-size: 1.25rem;
+    text-decoration: underline;
+    margin: 0px;
+    padding: 0px;
+  }
+  
+.about p, .interests p {
+    font-size: 0.75rem;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/* ---Footer Component--- */
+/* Footer Section*/
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
+}
+  
+.footer__icon {
+    height: 2.5rem;
+    border: 0.25rem white solid;
+    border-radius: 1.5rem;
+}

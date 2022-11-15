@@ -23,6 +23,37 @@ What you learned from the project
 
 
 
+For this entire React Project:
+-using typescript instead.
+-using CSS modules instead.
+-using react router
+
+
+## React Facts
+Completed
+
+Updated to make it look nicer.
+
+## Digital Business Card
+
+
+Updated:
+-Using a split pane to make the business card
+-One pane for inputs from a form for the business card
+-One pane has the business card
+
+Using this library: 
+I am using react-split, which is built on top of split.js
+npm install react-split
+https://www.npmjs.com/package/react-split
+
+https://split.js.org/#/
+https://www.npmjs.com/package/split.js?utm_source=cdnjs&utm_medium=cdnjs_link&utm_campaign=cdnjs_library
+
+
+Use React Icons:
+https://react-icons.github.io/react-icons
+
 
 
 
