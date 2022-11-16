@@ -55,6 +55,36 @@ Use React Icons:
 https://react-icons.github.io/react-icons
 
 
+USE autosize text area
+https://www.npmjs.com/package/react-textarea-autosize
+
+
+
+
+
+
+
+
+
+
+
+
+
+FAKER NPM:
+npm install @faker-js/faker --save-dev
+https://fakerjs.dev/guide/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Getting Started with Create React App

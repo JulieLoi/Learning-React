@@ -1,36 +1,166 @@
-import React, { FormEvent } from 'react';
+import React from 'react';
+import { CardFormEnum } from '../../Enums';
+import styles from '../../stylesheets/DigitalBusinessCard.module.css';
+import TextareaAutosize from 'react-textarea-autosize';
 
 interface Props {
-    formData: object;
-    setFormData: React.Dispatch<React.SetStateAction>;
+    state: any;
+    dispatch: React.Dispatch<{ type: any; payload: any; }>;
+    size: number;
+    submitState: boolean;
+    setSubmitState: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+const Form: React.FC<Props> = ({ state, dispatch, size, submitState, setSubmitState }) => {
 
-const Form: React.FC<Props> = ({ formData, setFormData }) => {
+    // Handle Submit
+    const handleSubmit = (event: any) => {
+        // 👇️ prevent page refresh
+        event.preventDefault();
+        console.log("Type: " + (typeof event))
+        console.log('form submitted ✅');
+    };
 
-    function handleChange(event: any) {
-        let {name, value, type, checked} = event.target;
-        setFormData(prevFormData => {
-            return {
-                ...prevFormData,
-                [name]: (type === "checkbox" ? checked : value)
-            }
-        })
-    }
-
+    // Form Component
     return (
-        <div>
-            Form
-            <form>
-                <label htmlFor="firstName">First Name: 
-                    <input 
-                        type="text" 
-                        placeholder="First Name" 
-                        onChange={handleChange}
-                        name="firstName"
-                        value={formData.firstName}
-                    />
-                </label>
+        <div className={styles["form-container"]} style={{ width: `${size - 5}%`}} >
+            <div className={styles["form-top"]}>
+                <span className={styles["form-title"]}>Digital Business Card Form</span>
+                <span>
+                    <span>Static</span>
+                    <label className={styles["switch"]}>
+                        <input type="checkbox" checked={submitState} onChange={() => setSubmitState(prev => !prev)} />
+                        <span className={`${styles["slider"]} ${styles["slider-round"]}`}></span>
+                    </label>
+                    <span>Dynamic</span>
+                </span>
+            </div>
+    
+            <form onSubmit={handleSubmit} className={styles["form"]}>
+            <div className={styles["form__item"]}>
+                <label htmlFor="name">Full Name:</label>
+                <br />
+                <input 
+                    type="text" name="name" id="name" autoComplete="off"
+                    value={state.name} placeholder="Full Name" 
+                    onChange={(e) => dispatch({type: CardFormEnum.Name, payload: e.target.value})}
+                />
+            </div>
+            <div className={styles["form__item"]}>
+                <label htmlFor="job-position">Job Position:</label>
+                <br />
+                <input 
+                    type="text" name="job-position" id="job-position" autoComplete="off"
+                    value={state.jobPosition} placeholder="Job Position" 
+                    onChange={(e) => dispatch({type: CardFormEnum.JobPosition, payload: e.target.value})}
+                />
+            </div>
+
+            <div className={`${styles["form__item"]} ${styles["column-2"]}`}>
+                <label htmlFor="image">Image Link:</label>
+                <br />
+                <input 
+                    type="url" name="image" id="image" autoComplete="off"
+                    value={state.image} placeholder="Image Link..." 
+                    onChange={(e) => dispatch({type: CardFormEnum.Image, payload: e.target.value})}
+                />
+            </div>
+
+            <div className={`${styles["form__item"]} ${styles["column-2"]}`}>
+                <label htmlFor="personal-link">Personal Website Link:</label>
+                <br />
+                <input 
+                    type="url" name="personal-link" id="personal-link" autoComplete="off"
+                    value={state.personalLink} placeholder="Personal Website Link..." 
+                    onChange={(e) => dispatch({type: CardFormEnum.PersonalLink, payload: e.target.value})}
+                />
+            </div>
+
+
+            <div className={styles["form__item"]}>
+                <label htmlFor="email-link">Email Link:</label>
+                <br />
+                <input 
+                    type="url" name="email-link" id="email-link" autoComplete="off"
+                    value={state.emailLink} placeholder="Email Link..." 
+                    onChange={(e) => dispatch({type: CardFormEnum.EmailLink, payload: e.target.value})}
+                />
+            </div>
+
+
+            <div className={styles["form__item"]}>
+                <label htmlFor="linkedIn-link">LinkedIn Link:</label>
+                <br />
+                <input 
+                    type="url" name="linkedIn-link" id="linkedIn-link" autoComplete="off"
+                    value={state.linkedInLink} placeholder="LinkedIn Link..." 
+                    onChange={(e) => dispatch({type: CardFormEnum.LinkedInLink, payload: e.target.value})}
+                />
+            </div>
+
+
+            <div className={styles["form__item"]}>
+                <label htmlFor="about-text">About Section:</label>
+                <TextareaAutosize 
+                    name="about-text" id="about-text" autoComplete="off"
+                    placeholder="Write your 'About' section here..." 
+                    onChange={(e) => dispatch({type: CardFormEnum.AboutText, payload: e.target.value})}
+                />
+            </div>
+
+
+            <div className={styles["form__item"]}>
+                <label htmlFor="interest-text">Interest Section:</label>
+                <br />
+                <TextareaAutosize 
+                    name="interest-text" id="interest-text" autoComplete="off"
+                    placeholder="Write your 'Interest' section here..." 
+                    onChange={(e) => dispatch({type: CardFormEnum.InterestsText, payload: e.target.value})}
+                />
+            </div>
+
+
+            <div className={styles["form__item"]}>
+                <label htmlFor="twitter-link">Twitter Link:</label>
+                <br />
+                <input 
+                    type="url" name="twitter-link" id="twitter-link" autoComplete="off"
+                    value={state.twitterLink} placeholder="Twitter Link..." 
+                    onChange={(e) => dispatch({type: CardFormEnum.TwitterLink, payload: e.target.value})}
+                />
+                
+            </div>
+
+
+            <div className={styles["form__item"]}>
+                <label htmlFor="facebook-link">Facebook Link:</label>
+                <br />
+                <input 
+                    type="url" name="facebook-link" id="facebook-link" autoComplete="off"
+                    value={state.facebookLink} placeholder="Facebook Link..." 
+                    onChange={(e) => dispatch({type: CardFormEnum.FacebookLink, payload: e.target.value})}
+                />
+            </div>
+
+            <div className={styles["form__item"]}>
+                <label htmlFor="instagram-link">Instagram Link:</label>
+                <br />
+                <input 
+                    type="url" name="instagram-link" id="instagram-link" autoComplete="off"
+                    value={state.instagramLink} placeholder="Instagram Link..." 
+                    onChange={(e) => dispatch({type: CardFormEnum.InstagramLink, payload: e.target.value})}
+                />
+            </div>
+
+            <div className={styles["form__item"]}>
+                <label htmlFor="github-link">Github Link:</label>
+                <br />
+                <input 
+                    type="url" name="github-link" id="github-link" autoComplete="off"
+                    value={state.githubLink} placeholder="Github Link..." 
+                    onChange={(e) => dispatch({type: CardFormEnum.GithubLink, payload: e.target.value})}
+                />
+            </div>
             </form>
         </div>
     );

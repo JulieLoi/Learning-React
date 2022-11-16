@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from "../stylesheets/ReactFacts.module.css";
-import Navbar from "../Components/ReactFacts/Navbar.component";
-import MainContent from "../Components/ReactFacts/MainContent.component";
+import Navbar from "../components/ReactFacts/Navbar.component";
+import MainContent from "../components/ReactFacts/MainContent.component";
 
 const ReactFactsPage: React.FC = () => {
 

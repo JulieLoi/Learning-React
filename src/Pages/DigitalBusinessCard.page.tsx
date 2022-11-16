@@ -1,34 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useReducer, useState, } from 'react';
 import Split from 'react-split';
-
 import '../stylesheets/split.css';
 import styles from '../stylesheets/DigitalBusinessCard.module.css';
-import About from '../Components/DigitalBusinessCard/About.component';
-import Information from '../Components/DigitalBusinessCard/Information.component';
-import Interests from '../Components/DigitalBusinessCard/Interests.component';
-import Footer from '../Components/DigitalBusinessCard/Footer.component';
-import Form from "../Components/DigitalBusinessCard/Form.component";
-
-/***
- * Design Plan
- * Make it split screen
- * Form on one side
- * The Digital Business Card Page on the other side.
- */
-
-
+import Information from '../components/DigitalBusinessCard/Information.component';
+import Description from '../components/DigitalBusinessCard/Description.component';
+import Footer from '../components/DigitalBusinessCard/Footer.component';
+import Form from "../components/DigitalBusinessCard/Form.component";
+import { cardFormReducer } from '../Reducers';
 
 const DigitalBusinessCardPage: React.FC = () => {
-
-    const [formData, setFormData] = React.useState(
-        {
-            firstName: "", lastName: "", email: "", 
-            comments: "",
-            isFriendly: false,
-            employment: "",
-            favColor: ""
-        }
-    )
 
     // Split Size
     const [size, setSize] = useState<number[]>(() => {
@@ -38,32 +18,56 @@ const DigitalBusinessCardPage: React.FC = () => {
             return [parseInt(splitArray[0].slice(1)), parseInt(splitArray[1].slice(0, -1))];
         }
     )
+
+    // Submit Method
+    const [submitState, setSubmitState] = useState<boolean>(false);
+
+    // Initial Form Data and reducer
+    const initialState = {
+        image: "",
+        name: "",
+        jobPosition: "",
+        personalLink: "",
+        emailLink: "https://gmail.google.com/inbox/",
+        linkedInLink: "https://www.linkedin.com/",
+        aboutText: "",
+        interestsText: "",
+        twitterLink: "https://twitter.com",
+        facebookLink: "http://facebook.com",
+        instagramLink: "https://instagram.com",
+        githubLink: "https://github.com",
+    }
+    const [cardState, cardDispatch] = useReducer(cardFormReducer, initialState);
     
 
+    // Digital Business Card Page
     return (
-        <Split className="split" minSize={400} sizes={size} 
-            onDragEnd={(sizes: number[]) => {
-                    setSize(sizes);
-                    localStorage.setItem('split-sizes', JSON.stringify(sizes));
+        <Split className="split" minSize={450} sizes={size}
+            onDrag={(sizes: number[]) => {
+                    let newSizes = [Math.round(sizes[0]), 100-Math.round(sizes[0])]
+                    setSize(newSizes);
+                    localStorage.setItem('split-sizes', JSON.stringify(newSizes));
                 }
             }
         >
-            <div className={`${styles["pane"]} ${styles["form"]}`}>
+            <div className={styles["form-section"]}>
                 <Form 
-                    formData={formData}
-                    setFormData={setFormData}
+                    state={cardState}
+                    dispatch={cardDispatch}
+                    size={size[0]}
+                    submitState={submitState}
+                    setSubmitState={setSubmitState}
                 />
             </div>
-            
-            <div className={`${styles["body"]}`}>
-                <div className={`${styles["pane"]} ${styles["card"]}`}>
-                    <Information />
-                    <About />
-                    <Interests />
-                    <Footer />
+            <div className={`${styles["card-section"]}`}>
+                <div className={styles["card"]}
+                    style={{ width: `${size[1] - 5}%`,}}
+                >
+                    <Information state={cardState} submitState={submitState} />
+                    <Description state={cardState} submitState={submitState} />
+                    <Footer state={cardState} submitState={submitState} />
                 </div>
             </div>
-           
         </Split>   
     );
 };
