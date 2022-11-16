@@ -3,7 +3,6 @@
  * Enum for Digital Business Card Form
  */
 export enum CardFormEnum {
-    All = "UPDATE_ALL",
     Image = "UPDATE_IMAGE",
     Name = "UPDATE_NAME",
     JobPosition = "UPDATE_JOB_POSITION",

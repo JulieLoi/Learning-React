@@ -3,20 +3,6 @@ import { CardFormEnum } from "./Enums";
 export const cardFormReducer = (state: any, action: { type: any; payload: any; }) => {
     console.log(action.payload);
     switch (action.type) {
-        case CardFormEnum.All: 
-            return {
-                image: action.payload.image,
-                name: action.payload.name,
-                jobPosition: action.payload.jobPosition,
-                personalLink: action.payload.personalLink,
-                emailLink: action.payload.emailLink,
-                linkedInLink: action.payload.linkedInLink,
-                aboutText: action.payload.aboutText,
-                twitterLink: action.payload.twitterLink,
-                facebookLink: action.payload.facebookLink,
-                instagramLink: action.payload.instagramLink,
-                githubLink: action.payload.githubLink
-            }
         case CardFormEnum.Image:           return {...state, image: action.payload}
         case CardFormEnum.Name:            return {...state, name: action.payload}
         case CardFormEnum.JobPosition:     return {...state, jobPosition: action.payload}

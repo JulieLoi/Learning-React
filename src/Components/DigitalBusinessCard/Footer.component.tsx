@@ -3,10 +3,9 @@ import styles from '../../stylesheets/DigitalBusinessCard.module.css';
 
 interface Props {
     state: any;
-    submitState: boolean;
 }
 
-const Footer: React.FC<Props> = ({ state, submitState }) => {
+const Footer: React.FC<Props> = ({ state }) => {
     return (
         <footer className={styles["footer"]}>
             <a href={state.twitterLink === "" ? "https://twitter.com" : state.twitterLink} 
@@ -29,7 +28,7 @@ const Footer: React.FC<Props> = ({ state, submitState }) => {
             </a>
             <a href={state.githubLink === "" ? "https://github.com" : state.githubLink} 
                 target="_blank" rel="noopener noreferrer"
-            >
+                >
                 <img src="./images/DigitalBusinessCard/github.png" alt="Github Icon" 
                     className={styles["footer__icon"]} />
             </a>

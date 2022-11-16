@@ -4,10 +4,9 @@ import styles from '../../stylesheets/DigitalBusinessCard.module.css';
 
 interface Props {
     state: any;
-    submitState: boolean;
 }
 
-const Information: React.FC<Props> = ({ state, submitState }) => {
+const Information: React.FC<Props> = ({ state }) => {
 
     return (
         <section className={styles["info"]}>

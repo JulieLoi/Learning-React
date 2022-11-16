@@ -19,9 +19,6 @@ const DigitalBusinessCardPage: React.FC = () => {
         }
     )
 
-    // Submit Method
-    const [submitState, setSubmitState] = useState<boolean>(false);
-
     // Initial Form Data and reducer
     const initialState = {
         image: "",
@@ -55,17 +52,15 @@ const DigitalBusinessCardPage: React.FC = () => {
                     state={cardState}
                     dispatch={cardDispatch}
                     size={size[0]}
-                    submitState={submitState}
-                    setSubmitState={setSubmitState}
                 />
             </div>
             <div className={`${styles["card-section"]}`}>
                 <div className={styles["card"]}
                     style={{ width: `${size[1] - 5}%`,}}
                 >
-                    <Information state={cardState} submitState={submitState} />
-                    <Description state={cardState} submitState={submitState} />
-                    <Footer state={cardState} submitState={submitState} />
+                    <Information state={cardState} />
+                    <Description state={cardState} />
+                    <Footer state={cardState} />
                 </div>
             </div>
         </Split>   

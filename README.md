@@ -59,7 +59,8 @@ USE autosize text area
 https://www.npmjs.com/package/react-textarea-autosize
 
 
-
+Flat Icon:
+<a href="https://www.flaticon.com/free-icons/business-card-design" title="business card design icons">Business card design icons created by MEDZ - Flaticon</a>
 
 
 

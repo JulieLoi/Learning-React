@@ -7,11 +7,9 @@ interface Props {
     state: any;
     dispatch: React.Dispatch<{ type: any; payload: any; }>;
     size: number;
-    submitState: boolean;
-    setSubmitState: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Form: React.FC<Props> = ({ state, dispatch, size, submitState, setSubmitState }) => {
+const Form: React.FC<Props> = ({ state, dispatch, size }) => {
 
     // Handle Submit
     const handleSubmit = (event: any) => {
@@ -26,14 +24,9 @@ const Form: React.FC<Props> = ({ state, dispatch, size, submitState, setSubmitSt
         <div className={styles["form-container"]} style={{ width: `${size - 5}%`}} >
             <div className={styles["form-top"]}>
                 <span className={styles["form-title"]}>Digital Business Card Form</span>
-                <span>
-                    <span>Static</span>
-                    <label className={styles["switch"]}>
-                        <input type="checkbox" checked={submitState} onChange={() => setSubmitState(prev => !prev)} />
-                        <span className={`${styles["slider"]} ${styles["slider-round"]}`}></span>
-                    </label>
-                    <span>Dynamic</span>
-                </span>
+                <img src="/images/DigitalBusinessCard/business-card.png" alt="business card icon" 
+                    className={styles["form-image"]}
+                />
             </div>
     
             <form onSubmit={handleSubmit} className={styles["form"]}>
