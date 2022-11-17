@@ -1,11 +1,25 @@
-import React from 'react';
+import { Navbar, Container } from 'react-bootstrap';
+import styles from '../../stylesheets/Jokes.module.css';
 
 
-const NavBar = () => {
+interface Props {
+    darkMode: boolean;
+    setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const NavBar: React.FC<Props> = ({ darkMode, setDarkMode }) => {
     return (
-        <nav>
+        <Navbar bg={darkMode ? "dark" : "light"} variant="dark" expand="lg"
+            className={styles["nav"]}
+        >
+            <div className={styles["nav-title"]}>
+                <img src="/images/Jokes/buffoon.png" alt="jester hat"
+                    className={styles["nav-title__icon"]}
+                />
+                <Navbar.Brand className={styles["nav-title__text"]}>Jokes and Puns</Navbar.Brand>
+            </div>
             
-        </nav>
+        </Navbar>
     );
 };
 

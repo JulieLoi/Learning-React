@@ -1,5 +1,7 @@
+import React, { useState } from "react";
 import Joke from '../components/Jokes/Joke.component';
 import jokes from '../components/Jokes/JokesData';
+import Navbar from '../components/Jokes/Navbar.component';
 import styles from '../stylesheets/Jokes.module.css';
 
 
@@ -21,9 +23,12 @@ import styles from '../stylesheets/Jokes.module.css';
 
 const JokesPage = () => {
 
+    const [darkMode, setDarkMode] = useState<boolean>(true);
+
     const jokeElements = jokes.map(joke => {
         return (
             <Joke 
+                key={joke.punchline}
                 setup={joke.setup}
                 punchline={joke.punchline}
                 isPun={joke.isPun}
@@ -36,6 +41,10 @@ const JokesPage = () => {
 
     return (
         <div className={styles["jokes-page"]}>
+            <Navbar 
+                darkMode={darkMode}
+                setDarkMode={setDarkMode}
+            />
             <div className={styles["jokes"]}>
                 {jokeElements}
             </div>

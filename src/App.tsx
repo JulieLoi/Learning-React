@@ -3,6 +3,8 @@ import HomePage from './Pages/Home.page';
 import ReactFactsPage from './Pages/ReactFacts.page';
 import DigitalBusinessCardPage from './Pages/DigitalBusinessCard.page';
 import JokesPage from './Pages/Jokes.page';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
