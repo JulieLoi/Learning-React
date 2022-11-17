@@ -84,6 +84,8 @@ https://www.npmjs.com/package/html-to-image
  * 
  */
  
+ USING CUSTOM CREATED TYPES: JOKE
+
 Use Bootstrap to create components
 npm install react-bootstrap bootstrap
 https://react-bootstrap.netlify.app/getting-started/introduction/#installation
@@ -92,19 +94,21 @@ https://react-bootstrap.netlify.app/getting-started/introduction/#installation
 ICON: 
 <a href="https://www.flaticon.com/free-icons/joke" title="joke icons">Joke icons created by Freepik - Flaticon</a>
 
-
-
-
-FAKER NPM:
+FAKER NPM FOR ID JOKE ID:
 npm install @faker-js/faker --save-dev
 https://fakerjs.dev/guide/
 
 
+Underscore.js Library: Helper Functions
+-sortby in Jokes
+npm i --save-dev @types/underscore
 
 
+The project's bootstrap card has auto height and will match its parent divs height.
+-super annoying.
+dont use bootstrap anymore...
 
-
-
+Other than the cards being troublesome, it works.
 
 
 

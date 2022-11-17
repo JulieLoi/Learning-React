@@ -1,7 +1,10 @@
-import { CardFormEnum } from "./Enums";
+import { CardFormEnum, JokeEnum } from "./Enums";
+import JokeType from "./Types/Joke.type";
 
-export const cardFormReducer = (state: any, action: { type: any; payload: any; }) => {
-    console.log(action.payload);
+var _ = require("underscore");
+
+
+export const cardFormReducer = (state: object, action: { type: CardFormEnum; payload: string; }) => {
     switch (action.type) {
         case CardFormEnum.Image:           return {...state, image: action.payload}
         case CardFormEnum.Name:            return {...state, name: action.payload}
@@ -19,18 +22,25 @@ export const cardFormReducer = (state: any, action: { type: any; payload: any; }
     }
 }
 
-/**
+export const jokeReducer = (state: JokeType[], action: { type: JokeEnum; payload?: JokeType[]; }) => {
+    switch (action.type) {
+        case JokeEnum.BestRated:
+            const percentages = (state.map(joke => {
+                return joke.upvotes / (joke.upvotes + joke.downvotes);
+            })).sort().reverse();
 
-name: "Name",
-jobPosition: "Job Position",
-personalLink: "Personal Website Link",
-emailLink: "Email Link",
-linkedInLink: "LinkedIn Link",
-aboutText: "About Text",
-interestsText: "Interests Text",
-twitterLink: "Twitter Link",
-facebookLink: "Facebook Link",
-instagramLink: "Instagram Link",
-githubLink: "Github Link"
-
- */
+            return (
+                percentages.map(percent => {
+                    return state.find(joke => (joke.upvotes / (joke.upvotes + joke.downvotes)) === percent)
+                })
+            );
+        case JokeEnum.MostUpvotes:      return _.sortBy( state, 'upvotes').reverse();
+        case JokeEnum.LeastUpvotes:     return _.sortBy( state, 'upvotes');
+        case JokeEnum.MostDownvotes:    return _.sortBy( state, 'downvotes').reverse();
+        case JokeEnum.LeastDownvotes:   return _.sortBy( state, 'downvotes');
+        case JokeEnum.JokesOnly:        return _.filter( action.payload, (joke: JokeType) => joke.isJoke );
+        case JokeEnum.PunsOnly:         return _.filter( action.payload, (joke: JokeType) => !joke.isJoke );
+        case JokeEnum.ClearFilter:      return action.payload;
+        default:    return state;
+    }
+}

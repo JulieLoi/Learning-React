@@ -16,3 +16,17 @@ export enum CardFormEnum {
     InstagramLink = "UPDATE_INSTAGRAM_LINK",
     GithubLink = "UPDATE_GITHUB_LINK",
 }
+
+/**
+ * Enum for Jokes Page
+ */
+export enum JokeEnum {
+    BestRated = "SORT_BY_BEST_RATED",
+    MostUpvotes = "SORT_BY_MOST_UPVOTES",
+    LeastUpvotes ="SORT_BY_LEAST_UPVOTES",
+    MostDownvotes = "SORT_BY_MOST_DOWNVOTES",
+    LeastDownvotes = "SORT_BY_LEAST_DOWNVOTES",
+    JokesOnly = "ONLY_JOKES",
+    PunsOnly = "ONLY_PUNS",
+    ClearFilter = "CLEAR_FILTER",
+}

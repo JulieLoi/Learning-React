@@ -1,52 +1,46 @@
-import React, { useState } from "react";
+import { useState, useReducer } from "react";
 import Joke from '../components/Jokes/Joke.component';
-import jokes from '../components/Jokes/JokesData';
+import jokesData from '../components/Jokes/JokesData';
 import Navbar from '../components/Jokes/Navbar.component';
+import Filter from '../components/Jokes/Filter.component';
+
 import styles from '../stylesheets/Jokes.module.css';
+import JokeType from "../Types/Joke.type";
+import { jokeReducer } from "../Reducers";
 
 
-
-/**
- * PLAN:
- * Show Jokes
- * Let you sort jokes based on filters
- * --ADD FILTER FROM SHOPPING CART PROJECT
- * 
- * Make a simple Navbar.
- * Filter bar on the side
- * Jokes like shopping cart products
- * No need to add jokes or remove them...
- * 
- * MAKE EVERYTHING USING BOotSTRAP
- * 
- */
 
 const JokesPage = () => {
 
+    // States
     const [darkMode, setDarkMode] = useState<boolean>(true);
+    const [sortFilter, setSortFilter] = useState<string>("");
+    const [typeFilter, setTypeFilter] = useState<string>("");
 
-    const jokeElements = jokes.map(joke => {
-        return (
-            <Joke 
-                key={joke.punchline}
-                setup={joke.setup}
-                punchline={joke.punchline}
-                isPun={joke.isPun}
-                upvotes={joke.upvotes}
-                downvotes={joke.downvotes}
-            />
-        )
-    })
+    // Initial Jokes Data and reducer
+    const [jokesState, jokesDispatch] = useReducer(jokeReducer, jokesData);
 
-
+    // Jokes Page
     return (
         <div className={styles["jokes-page"]}>
             <Navbar 
                 darkMode={darkMode}
                 setDarkMode={setDarkMode}
             />
-            <div className={styles["jokes"]}>
-                {jokeElements}
+            <div className={styles["jokes-page__body"]}>
+                <Filter 
+                    jokesData={jokesData}       dispatch={jokesDispatch}
+                    sortFilter={sortFilter}     setSortFilter={setSortFilter}
+                    typeFilter={typeFilter}     setTypeFilter={setTypeFilter}
+                />
+                <div className={styles["jokes"]}>
+                    {jokesState.map((joke: JokeType) => 
+                        <Joke 
+                            key={joke.id}
+                            joke={joke}
+                        />
+                    )}
+                </div>
             </div>
         </div>
     );
