@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;700&family=Poppins:wght@300;400;700&display=swap');
+
+@value values: "./colors.css";
+@value joke-btn from values;
+
+.jokes-page {
+    font-family: "Poppins", sans-serif;
+}
+
+.jokes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* ----Joke Component---- */
+.joke {
+  width: 23%;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  background: #e7e7e7;
+}
+
+.joke h1 {
+  margin: 0;
+  padding-bottom: 10px;
+  text-decoration: underline;
+}
+
+.joke p {
+  margin: 0;
+}
+
+/* Joke Type and Punchline Button */
+.joke-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.joke-top button {
+  margin: auto 0px;
+  padding: 5px;
+
+  background-color: transparent;
+  border: 2px solid joke-btn;
+  border-radius: 12px;
+
+  font-family: "Oswald", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+}
+
+.joke-top__button {
+  transition-duration: 0.4s;
+}
+
+.joke-top__button:hover {
+  background-color: joke-btn;
+  color: white;
+}
+
+/* The Joke Itself */
+.joke__setup {
+  font-weight: bold;
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+
+.joke__punchline {
+  font-size: 15px;
+}
+
+/* Joke Upvotes and Downvotes */
+.joke__votes {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  -webkit-text-stroke: 0.5px black;
+}
+
+.joke__votes span {
+  padding-right: 10px;
+}
+
+.joke__votes span img {
+  height: 16px;
+  padding-right: 5px;
+}
+
+.upvotes {
+  color: green;
+}
+
+.downvotes {
+  color: red;
+}

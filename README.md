@@ -68,6 +68,27 @@ https://www.npmjs.com/package/html-to-image
 
 
 
+# JOKES Page
+/**
+ * PLAN:
+ * Show Jokes
+ * Let you sort jokes based on filters
+ * --ADD FILTER FROM SHOPPING CART PROJECT
+ * 
+ * Make a simple Navbar.
+ * Filter bar on the side
+ * Jokes like shopping cart products
+ * No need to add jokes or remove them...
+ * 
+ * MAKE EVERYTHING USING BOotSTRAP
+ * 
+ */
+ 
+Use Bootstrap to create components
+npm install react-bootstrap bootstrap
+https://react-bootstrap.netlify.app/getting-started/introduction/#installation
+
+
 
 
 
