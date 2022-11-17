@@ -1,11 +1,13 @@
-import React, { useReducer, useState, } from 'react';
+import React, { useReducer, useState, useRef, useCallback } from 'react';
 import Split from 'react-split';
+import { toPng } from 'html-to-image';
+
 import '../stylesheets/split.css';
 import styles from '../stylesheets/DigitalBusinessCard.module.css';
+import Form from "../components/DigitalBusinessCard/Form.component";
 import Information from '../components/DigitalBusinessCard/Information.component';
 import Description from '../components/DigitalBusinessCard/Description.component';
 import Footer from '../components/DigitalBusinessCard/Footer.component';
-import Form from "../components/DigitalBusinessCard/Form.component";
 import { cardFormReducer } from '../Reducers';
 
 const DigitalBusinessCardPage: React.FC = () => {
@@ -37,6 +39,22 @@ const DigitalBusinessCardPage: React.FC = () => {
     const [cardState, cardDispatch] = useReducer(cardFormReducer, initialState);
     
 
+    // Download PNG
+    const ref = useRef<HTMLDivElement>(null)
+    const onButtonClick = useCallback(() => {
+        if (ref.current === null) { return }
+        toPng(ref.current, { cacheBust: true, })
+          .then((dataUrl) => {
+            console.log(ref.current)
+
+            const link = document.createElement('a');
+            link.download = 'business-card.png';
+            link.href = dataUrl;
+            link.click();
+          })
+          .catch((err) => { console.log(err) })
+      }, [ref])
+
     // Digital Business Card Page
     return (
         <Split className="split" minSize={450} sizes={size}
@@ -52,15 +70,17 @@ const DigitalBusinessCardPage: React.FC = () => {
                     state={cardState}
                     dispatch={cardDispatch}
                     size={size[0]}
+                    downloadFunction={onButtonClick}
                 />
             </div>
             <div className={`${styles["card-section"]}`}>
                 <div className={styles["card"]}
-                    style={{ width: `${size[1] - 5}%`,}}
+                    style={{ width: `${size[1] - 5}%`}}  
+                    ref={ref}
                 >
                     <Information state={cardState} />
                     <Description state={cardState} />
-                    <Footer state={cardState} />
+                    <Footer state={cardState} />                    
                 </div>
             </div>
         </Split>   

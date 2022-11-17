@@ -63,7 +63,8 @@ Flat Icon:
 <a href="https://www.flaticon.com/free-icons/business-card-design" title="business card design icons">Business card design icons created by MEDZ - Flaticon</a>
 
 
-
+HTML TO IMAGE:
+https://www.npmjs.com/package/html-to-image
 
 
 

@@ -7,9 +7,10 @@ interface Props {
     state: any;
     dispatch: React.Dispatch<{ type: any; payload: any; }>;
     size: number;
+    downloadFunction: () => void;
 }
 
-const Form: React.FC<Props> = ({ state, dispatch, size }) => {
+const Form: React.FC<Props> = ({ state, dispatch, size, downloadFunction }) => {
 
     // Handle Submit
     const handleSubmit = (event: any) => {
@@ -26,6 +27,7 @@ const Form: React.FC<Props> = ({ state, dispatch, size }) => {
                 <span className={styles["form-title"]}>Digital Business Card Form</span>
                 <img src="/images/DigitalBusinessCard/business-card.png" alt="business card icon" 
                     className={styles["form-image"]}
+                    onClick={downloadFunction}
                 />
             </div>
     
