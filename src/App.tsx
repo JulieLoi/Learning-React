@@ -7,6 +7,7 @@ import AirBnbExperiencePage from './Pages/AirBnbExperience.page';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import TravelJournalPage from './Pages/TravelJournal.page';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Route path="/digitalbusinesscard" element={<DigitalBusinessCardPage />}>Digital Business Card Page</Route>
       <Route path="/jokes" element={<JokesPage />}>Jokes Page</Route>
       <Route path="/airbnb" element={<AirBnbExperiencePage />}>AirBnb Page</Route>
+      <Route path="/traveljournal" element={<TravelJournalPage />}>Travel Journal Page</Route>
       <Route path="*" element={ <Navigate to="/home" /> } />
     </Routes>
   )
