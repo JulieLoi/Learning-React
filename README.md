@@ -121,8 +121,19 @@ more practice with a model type
 
 
 
+# MemeGenerator
+
+Updated UI
+Added a save meme button.
+This will save the meme with text and download it.
 
 
+Fit Text NPM: autofits the text on the meme image to shrink 
+npm i use-fit-text
+
+
+Creates a new component (MemeText Component)
+-This allows me to use the use-fit-text on separate components since i cant rename it.
 
 
 

@@ -1,76 +1,120 @@
-import * as React from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { toPng } from 'html-to-image';
+import TextareaAutosize from 'react-textarea-autosize';
 
-interface IMemeProps {
-}
+import { MemeType, MemeDataType } from '../../Types/Meme.type';
+import styles from '../../stylesheets/MemeGenerator.module.css';
+import MemeText from './MemeText.component';
 
-const Meme: React.FC<IMemeProps> = ({  }) => {
-  return ;
-};
+const Meme = () => {
 
-export default Meme;
-
-/**
- let [allMemes, setAllMemes] = React.useState([]);
-    let [meme, setMeme] = React.useState(
-        {
-            topText: "",
-            bottomText: "",
-            randomImage: ""
-        }
-    )
+    // Handle Meme Data
+    const [memesData, setMemesData] = useState<MemeDataType[]>([]);
+    const [meme, setMeme] = useState<MemeType>({ topText: "", bottomText: "", imageUrl: "" });
 
     // Gets Memes Data
-    React.useEffect(() => {
+    useEffect(() => {
         fetch("https://api.imgflip.com/get_memes")
             .then(res => res.json())
-            .then(memeData => setAllMemes(memeData.data.memes))
-    }, [])
+            .then(memeData => setMemesData(memeData.data.memes))
+    }, []);
 
-    // Gets a new Meme Image
-    function getMemeImage() {
-        let memeSelected = allMemes[Math.floor(Math.random()*allMemes.length)];
-        let memeUrl = memeSelected.url;
+    // Downloads Meme Image
+    const memeRef = useRef<HTMLDivElement>(null)
+    const downloadMeme = useCallback(() => {
+        if (memeRef.current === null) { return }
+        toPng(memeRef.current, { cacheBust: true, })
+            .then((dataUrl) => {
+                const link = document.createElement('a');
+                link.download = 'Meme.png';
+                link.href = dataUrl;
+                link.click();
+            })
+            .catch((err) => { console.log(err) });
+    }, [memeRef]);
+
+    // Handles Form Text Changes
+    const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement> ) => {
         setMeme(prevMeme => 
             ({
                 ...prevMeme,
-                randomImage: memeUrl
+                [event.target.name]: event.target.value
             })
-        )
-    }
+        );
+    };
 
-    // Handles Form Text Chanegs
-    function handleChange(event) {
-        const {name, value} = event.target;
-        setMeme(prevMeme => {
-            return {
-                ...prevMeme,
-                [name]: value
-            }
-        })
-    }
-
+    // Create Meme Component
     return (
-        <main className="Meme">
-            <div className="form">
-                <label for="top-meme">Top Part of the Meme </label>
-                <label for="bottom-meme">Bottom Part of the Meme </label>
-                <input type="text" id="top-meme" placeholder="Top Text" 
-                    name="topText" value={meme.topText} onChange={handleChange}
-                />
-                <input type="text" id="bottom-meme" placeholder="Bottom Text" 
-                    name="bottomText" value={meme.bottomText} onChange={handleChange}
-                />
-                <button type="button" className="button" onClick={getMemeImage}>Get a new meme image 🖼</button>
+        <main className={styles["meme"]}>
+            <div className={styles["meme__form"]}>
+                <div>
+                    <label htmlFor="top-meme" className={styles["meme-label"]}>
+                        Top Part of the Meme 
+                    </label>
+                    <br />
+                    <TextareaAutosize
+                        name="topText" id="top-meme" placeholder="Top Text"
+                        autoComplete="off" value={meme.topText}
+                        onChange={handleChange} className={styles["meme-input"]}
+                    />
+                </div>
+
+                <div>
+                    <label htmlFor="bottom-meme" className={styles["meme-label"]}>
+                        Bottom Part of the Meme 
+                    </label>
+                    <br />
+                    <TextareaAutosize
+                        name="bottomText" id="bottom-meme" placeholder="Bottom Text"
+                        autoComplete="off" value={meme.bottomText}
+                        onChange={handleChange} className={styles["meme-input"]}
+                    />
+                </div>
+
+                <button type="button" className={styles["meme-button"]}
+                    onClick={() => { setMeme(prevMeme => ({ 
+                        ...prevMeme, 
+                        imageUrl: memesData[Math.floor(Math.random() * memesData.length)].url 
+                    }))}}
+                >
+                    Get a new meme image 🖼
+                </button>
             </div>
-            <div className="meme-container">
-                {meme.randomImage !== "" && 
-                    <div className="created-meme">
-                        <img src={meme.randomImage} alt="Meme" className="meme-image" />
-                        <h2 className="meme-text top">{meme.topText}</h2>
-                        <h2 className="meme-text bottom">{meme.bottomText}</h2>
-                    </div>
+
+            <div className={styles["meme__container"]}>
+                {meme.imageUrl !== "" &&
+                    <>
+                        <div className={styles["created-meme"]} ref={memeRef} >
+                            <img src={meme.imageUrl} alt="meme" className={styles["meme-image"]} />
+                            <MemeText text={meme.topText} location={"top"} />
+                            <MemeText text={meme.bottomText} location={"bottom"} />
+                        </div>
+                        <button onClick={downloadMeme} className={`${styles["meme-button"]} ${styles["download-button"]}`}>
+                            Save Meme
+                        </button>
+                    </>
                 }
             </div>
         </main>
-    );
- */
+    )
+};
+
+export default Meme;
+/** */
+
+/**
+ * 
+<div className={`${styles["meme-image__text-position"]} ${styles["top"]}`}
+                                ref={ref} style={{ fontSize }}
+                            >
+                                <span className={styles["meme-text"]}>
+                                    {meme.topText}
+                                    </span>
+                            </div>
+
+
+                            <div className={`${styles["meme-image__text-position"]} ${styles["bottom"]}`}
+                            >
+                                <span className={`${styles["meme-text"]}`}>{meme.bottomText}</span>
+                            </div>
+ *  */
