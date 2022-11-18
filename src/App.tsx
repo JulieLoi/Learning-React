@@ -3,6 +3,9 @@ import HomePage from './Pages/Home.page';
 import ReactFactsPage from './Pages/ReactFacts.page';
 import DigitalBusinessCardPage from './Pages/DigitalBusinessCard.page';
 import JokesPage from './Pages/Jokes.page';
+import AirBnbExperiencePage from './Pages/AirBnbExperience.page';
+
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -13,6 +16,7 @@ function App() {
       <Route path="/reactfacts" element={<ReactFactsPage />}>React Facts Page</Route>
       <Route path="/digitalbusinesscard" element={<DigitalBusinessCardPage />}>Digital Business Card Page</Route>
       <Route path="/jokes" element={<JokesPage />}>Jokes Page</Route>
+      <Route path="/airbnb" element={<AirBnbExperiencePage />}>AirBnb Page</Route>
       <Route path="*" element={ <Navigate to="/home" /> } />
     </Routes>
   )

@@ -9,7 +9,6 @@ import JokeType from "../Types/Joke.type";
 import { jokeReducer } from "../Reducers";
 
 
-
 const JokesPage = () => {
 
     // States

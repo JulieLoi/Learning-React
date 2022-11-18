@@ -111,6 +111,22 @@ dont use bootstrap anymore...
 Other than the cards being troublesome, it works.
 
 
+# Air bnbn experience
+
+Use Faker to make more cards...
+That is the only major difference
+
+Made the card container and cards better looking (CSS PRACTICE)
+more practice with a model type
+
+
+
+
+
+
+
+
+
 
 
 
