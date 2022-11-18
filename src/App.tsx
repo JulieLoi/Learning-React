@@ -8,6 +8,7 @@ import AirBnbExperiencePage from './Pages/AirBnbExperience.page';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TravelJournalPage from './Pages/TravelJournal.page';
+import MemeGeneratorPage from './Pages/MemeGenerator.page';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Route path="/jokes" element={<JokesPage />}>Jokes Page</Route>
       <Route path="/airbnb" element={<AirBnbExperiencePage />}>AirBnb Page</Route>
       <Route path="/traveljournal" element={<TravelJournalPage />}>Travel Journal Page</Route>
+      <Route path="/memegenerator" element={<MemeGeneratorPage />}>Meme Generator</Route>
       <Route path="*" element={ <Navigate to="/home" /> } />
     </Routes>
   )
