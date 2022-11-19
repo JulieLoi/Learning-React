@@ -12,8 +12,16 @@
 @value joke-btn: rgb(76, 175, 80);
 
 
-/* Travel Journal COlors */
+/* Travel Journal Colors */
 @value img-shadow: rgba(0, 140, 186, 0.5);
 
 
 
+/* Notes App Colors*/
+@value lm-bg: #BBDCF3;
+@value lm-txt: #F1FEF8;
+@value lm-selected: #C1C4F5;
+
+@value dm-bg: rgb(119, 119, 119);
+@value dm-txt: rgb(230, 230, 230);
+@value dm-selected: #4A4E74; 

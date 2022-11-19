@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from '../../stylesheets/DigitalBusinessCard.module.css';
+import { BusinessCard } from '../../Types';
 
 interface Props {
-    state: any;
+    state: BusinessCard;
 }
 
 const About: React.FC<Props> = ({ state }) => {

@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import JournalCard from '../../Types/JournalCard.type';
+import { JournalCard } from '../../Types';
 
 const card1: JournalCard = {
     id: faker.datatype.uuid(),

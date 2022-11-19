@@ -7,10 +7,9 @@
 }
 
 .gutter {
-    background-color: #FFE2AA;
+    background-color: #eee;
     background-repeat: no-repeat;
     background-position: 50%;
-    border: 0.1rem solid rgba(255, 208, 120, 0.5);
 }
 
 .gutter.gutter-horizontal {

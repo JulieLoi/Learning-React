@@ -1,7 +1,9 @@
 import React from 'react';
-import { CardFormEnum } from '../../Enums';
-import styles from '../../stylesheets/DigitalBusinessCard.module.css';
 import TextareaAutosize from 'react-textarea-autosize';
+
+import styles from '../../stylesheets/DigitalBusinessCard.module.css';
+import { CardFormEnum } from '../../Enums';
+
 
 interface Props {
     state: any;

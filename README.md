@@ -137,6 +137,37 @@ Creates a new component (MemeText Component)
 
 
 
+# NOTES APP
+
+
+USE REDUCER FOR EVERYTHING.
+
+
+
+Markdown
+npm i @uiw/react-md-editor
+
+Rehype Sanitize
+https://github.com/rehypejs/rehype-sanitize
+
+
+Cleaned UI CSS
+Added some design
+Use react icons
+
+Added title to notes. (edit based on taskify)
+-You can edit title with double click or edit icon
+
+
+
+
+
+
+
+
+
+
+
 
 
 

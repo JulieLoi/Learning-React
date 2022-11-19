@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import styles from '../../stylesheets/Jokes.module.css';
-import JokeType from '../../Types/Joke.type';
+import { Joke } from '../../Types';
 
 interface Props {
-    joke: JokeType
+    joke: Joke
 }
 
-const Joke: React.FC<Props> = ({ joke }) => {
+const JokeItem: React.FC<Props> = ({ joke }) => {
 
     // State - Show Punchline (default: false)
     let [isShown, setIsShown] = useState(false)
@@ -51,4 +51,4 @@ const Joke: React.FC<Props> = ({ joke }) => {
     );
 };
 
-export default Joke;
+export default JokeItem;

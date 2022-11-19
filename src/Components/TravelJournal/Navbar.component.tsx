@@ -1,6 +1,4 @@
-import * as React from 'react';
 import styles from '../../stylesheets/TravelJournal.module.css';
-
 
 const Navbar = () => {
     return (

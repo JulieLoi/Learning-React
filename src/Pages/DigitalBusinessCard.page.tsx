@@ -2,12 +2,14 @@ import React, { useReducer, useState, useRef, useCallback } from 'react';
 import Split from 'react-split';
 import { toPng } from 'html-to-image';
 
-import '../stylesheets/split.css';
-import styles from '../stylesheets/DigitalBusinessCard.module.css';
 import Form from "../components/DigitalBusinessCard/Form.component";
 import Information from '../components/DigitalBusinessCard/Information.component';
 import Description from '../components/DigitalBusinessCard/Description.component';
 import Footer from '../components/DigitalBusinessCard/Footer.component';
+
+import '../stylesheets/split.css';
+import styles from '../stylesheets/DigitalBusinessCard.module.css';
+import { BusinessCard } from '../Types';
 import { cardFormReducer } from '../Reducers';
 
 const DigitalBusinessCardPage: React.FC = () => {
@@ -22,7 +24,7 @@ const DigitalBusinessCardPage: React.FC = () => {
     )
 
     // Initial Form Data and reducer
-    const initialState = {
+    const initialState: BusinessCard = {
         image: "",
         name: "",
         jobPosition: "",

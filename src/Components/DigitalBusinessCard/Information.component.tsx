@@ -1,9 +1,10 @@
 import React from 'react';
 import { SlEnvolope, SlSocialLinkedin } from 'react-icons/sl';
 import styles from '../../stylesheets/DigitalBusinessCard.module.css';
+import { BusinessCard } from '../../Types';
 
 interface Props {
-    state: any;
+    state: BusinessCard;
 }
 
 const Information: React.FC<Props> = ({ state }) => {

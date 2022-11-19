@@ -4,7 +4,7 @@ import Hero from '../components/AirBnbExperience/Hero.component';
 import Card from '../components/AirBnbExperience/Card.component';
 
 import styles from '../stylesheets/AirBnbExperience.module.css';
-import ExperienceCard from '../Types/ExperienceCard.type';
+import { ExperienceCard } from '../Types'
 
 const AirBnbExperiencePage = () => {
 

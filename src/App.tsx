@@ -1,14 +1,14 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import HomePage from './Pages/Home.page';
 import ReactFactsPage from './Pages/ReactFacts.page';
 import DigitalBusinessCardPage from './Pages/DigitalBusinessCard.page';
 import JokesPage from './Pages/Jokes.page';
 import AirBnbExperiencePage from './Pages/AirBnbExperience.page';
-
-
-import 'bootstrap/dist/css/bootstrap.min.css';
 import TravelJournalPage from './Pages/TravelJournal.page';
 import MemeGeneratorPage from './Pages/MemeGenerator.page';
+import NotesAppPage from './Pages/NotesApp.page';
 
 
 function App() {
@@ -20,7 +20,8 @@ function App() {
       <Route path="/jokes" element={<JokesPage />}>Jokes Page</Route>
       <Route path="/airbnb" element={<AirBnbExperiencePage />}>AirBnb Page</Route>
       <Route path="/traveljournal" element={<TravelJournalPage />}>Travel Journal Page</Route>
-      <Route path="/memegenerator" element={<MemeGeneratorPage />}>Meme Generator</Route>
+      <Route path="/memegenerator" element={<MemeGeneratorPage />}>Meme Generator Page</Route>
+      <Route path="/notesapp" element={<NotesAppPage />}>Notes App Page</Route>
       <Route path="*" element={ <Navigate to="/home" /> } />
     </Routes>
   )

@@ -1,7 +1,6 @@
 import { Navbar } from 'react-bootstrap';
 import styles from '../../stylesheets/Jokes.module.css';
 
-
 interface Props {
     darkMode: boolean;
     setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;

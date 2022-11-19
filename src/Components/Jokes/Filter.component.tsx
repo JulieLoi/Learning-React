@@ -1,12 +1,13 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
+
 import styles from '../../stylesheets/Jokes.module.css';
+import { Joke } from '../../Types';
 import { JokeEnum } from '../../Enums';
-import JokeType from '../../Types/Joke.type';
 
 interface Props {
-    jokesData: JokeType[];
-    dispatch: React.Dispatch<{ type: JokeEnum; payload?: JokeType[] | undefined; }>;
+    jokesData: Joke[];
+    dispatch: React.Dispatch<{ type: JokeEnum; payload?: Joke[] | undefined; }>;
     sortFilter: string;
     setSortFilter: React.Dispatch<React.SetStateAction<string>>;
     typeFilter: string;

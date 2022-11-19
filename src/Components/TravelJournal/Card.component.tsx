@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../../stylesheets/TravelJournal.module.css';
-import JournalCard from '../../Types/JournalCard.type';
+import { JournalCard } from '../../Types';
 
 interface ICardProps {
     card: JournalCard;

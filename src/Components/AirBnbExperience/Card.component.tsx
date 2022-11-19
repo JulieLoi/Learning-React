@@ -2,7 +2,7 @@ import React from 'react';
 import { AiFillStar } from 'react-icons/ai';
 
 import styles from '../../stylesheets/AirBnbExperience.module.css';
-import ExperienceCard from '../../Types/ExperienceCard.type';
+import { ExperienceCard } from '../../Types';
 
 interface ICardProps {
     card: ExperienceCard

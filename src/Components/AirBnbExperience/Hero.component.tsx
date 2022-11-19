@@ -1,7 +1,4 @@
-import React from 'react';
 import styles from '../../stylesheets/AirBnbExperience.module.css';
-
-
 
 const Hero = () => {
     return (

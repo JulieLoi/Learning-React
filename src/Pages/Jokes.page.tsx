@@ -1,11 +1,11 @@
 import { useState, useReducer } from "react";
-import Joke from '../components/Jokes/Joke.component';
-import jokesData from '../components/Jokes/JokesData';
 import Navbar from '../components/Jokes/Navbar.component';
 import Filter from '../components/Jokes/Filter.component';
+import JokeItem from '../components/Jokes/JokeItem.component';
+import jokesData from '../components/Jokes/JokesData';
 
 import styles from '../stylesheets/Jokes.module.css';
-import JokeType from "../Types/Joke.type";
+import { Joke } from "../Types";
 import { jokeReducer } from "../Reducers";
 
 
@@ -33,8 +33,8 @@ const JokesPage = () => {
                     typeFilter={typeFilter}     setTypeFilter={setTypeFilter}
                 />
                 <div className={styles["jokes"]}>
-                    {jokesState.map((joke: JokeType) => 
-                        <Joke 
+                    {jokesState.map((joke: Joke) => 
+                        <JokeItem 
                             key={joke.id}
                             joke={joke}
                         />
@@ -46,28 +46,3 @@ const JokesPage = () => {
 };
 
 export default JokesPage;
-
-/**
- // Sorts Jokes by upvotes (ascending)
-    let sortedJokes = jokesData.sort((joke1, joke2) => {
-        return joke2.upvotes - joke1.upvotes;
-    })
-
-    let jokeElements = sortedJokes.map(joke => {
-        return (
-            <Joke 
-                setup={joke.setup}
-                punchline={joke.punchline}
-                isPun={joke.isPun}
-                upvotes={joke.upvotes}
-                downvotes={joke.downvotes}
-            />
-        )
-    });
-
-    return (
-        <div className="App">
-          {jokeElements}
-        </div>
-    )
- */

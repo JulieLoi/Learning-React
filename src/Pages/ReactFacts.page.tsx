@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import styles from "../stylesheets/ReactFacts.module.css";
 import Navbar from "../components/ReactFacts/Navbar.component";
 import MainContent from "../components/ReactFacts/MainContent.component";
+import styles from "../stylesheets/ReactFacts.module.css";
 
 const ReactFactsPage: React.FC = () => {
 
     // Light/Dark Mode - Dark Mode (Default)
     const [darkMode, setDarkMode] = useState<boolean>(localStorage.getItem("darkMode") === "true");
-    function changeMode(): void { 
-        setDarkMode(prevMode => !prevMode); 
-    }
 
     // Local Storage (Dark Mode)
     useEffect(() => {
@@ -21,7 +18,7 @@ const ReactFactsPage: React.FC = () => {
         <div className={`${styles["body"]} ${darkMode ? styles["body__dark"] : styles["body__light"]}`}>
             <Navbar 
                 darkMode={darkMode}
-                toggleDarkMode={changeMode}
+                setDarkMode={setDarkMode}
             />
             <MainContent 
                 darkMode={darkMode}

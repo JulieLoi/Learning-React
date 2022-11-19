@@ -1,0 +1,98 @@
+
+@value values: "./colors.css";
+@value lm-bg, lm-txt, lm-selected from values;
+@value dm-bg, dm-txt, dm-selected from values;
+
+/* Dark Mode Toggle */
+.toggle input[type='checkbox'] {
+    display: none;
+}
+
+/* Light Mode - Background */
+.toggle label {
+    background-color: rgb(206, 234, 237);
+    border: 2px solid rgb(66, 91, 94);
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: all ease-in-out 0.3s;
+    width: 100px;
+    height: 50px;
+}
+
+/* Dark Mode - Background */
+.toggle input[type='checkbox']:checked ~ label {
+    background-color: rgb(85, 85, 85);
+    border-color: rgb(62, 62, 62);
+}
+
+/* Light Mode - Sun */
+.toggle label::after {
+    background-color: transparent;
+    border-radius: 50%;
+    content: ' ';
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    transition: all ease-in-out 0.3s;
+    width: 2.75rem;
+    height: 42px;
+
+    background-image: url('../../public/images/NotesApp/sun.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Dark Mode - Moon */
+.toggle input[type='checkbox']:checked ~ label::after {
+    background-color: "transparent";
+    transform: translateX(50px);
+    background-image: url('../../public/images/NotesApp/moon.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*---------------------*/
+.lm {
+    background: lm-bg;
+    color: lm-txt;
+}
+
+.dm {
+    background: dm-bg;
+    color: dm-txt;
+}
+
+.lm-no-notes {
+    background: lm-bg;
+    color: lm-txt;
+}
+
+.dm-no-notes {
+    background: dm-bg;
+    color: dm-txt;
+}
+
+.lm-container {
+    border: 0.5rem solid #989CE5;
+    background: rgba(166,207,236,0.75);
+}
+
+.dm-container {
+    border: 0.5rem solid #676A8B;
+    background:rgba(142,145,169,0.75);
+}
+
+.dm-select {
+    background-color: dm-selected;
+    color: dm-txt;
+}
+
+.lm-select {
+    background-color: lm-selected;
+    color: lm-txt;
+}   
+

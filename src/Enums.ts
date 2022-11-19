@@ -30,3 +30,16 @@ export enum JokeEnum {
     PunsOnly = "ONLY_PUNS",
     ClearFilter = "CLEAR_FILTER",
 }
+
+
+export enum NotesEnum {
+    SetState = "SET_STATE",
+    CreateNote = "CREATE_NOTE",
+    UpdateNoteTitle = "UPDATE_NOTE_TITLE",
+    UpdateNoteBody = "UPDATE_NOTE_BODY",
+    UpdateEdit = "UPDATE_EDIT",
+    UpdateCurrentNoteId = "UPDATE_CURRENT_NOTE_ID",
+    ChangeDarkMode = "CHANGE_DARK_MODE",
+    DeleteNote = "DELETE_NOTE",
+    EditNoteTitle = "EDIT_NOTE_TITLE"
+}

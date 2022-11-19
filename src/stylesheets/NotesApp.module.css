@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700;800&family=Passion+One:wght@700&display=swap');
+
+
+.notes-app-page {
+    font-family: "Karla", sans-serif;
+    font-size: 1.5rem;
+    height: 100vh;
+}
+
+.section {
+    border: 0.1rem solid black;
+    border-radius: 1.5rem;
+    padding: 0.75rem;
+}
+
+.pane {
+    overflow-y: auto;
+}
+
+/* No Notes Display */
+.no-notes {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-notes__container {
+    text-align: center;
+    padding: 4rem 3rem;
+    border-radius: 3rem;
+}
+
+.no-notes__title {
+    font-family: "Passion One", sans-serif;
+    font-size: 4rem;
+    -webkit-text-stroke: 0.1rem black;
+}
+  
+.create-note-button {
+    font-family: "Passion One", sans-serif;
+    font-size: 1.5rem;
+    -webkit-text-stroke: 0.05rem black;
+
+    border: 0.1rem solid black;
+    border-radius: 2rem;
+
+    padding: 1rem;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+  
+.create-note-button:hover, .new-note-button:hover {
+    background-color: #4E87AF;
+    transform: scale(1.1);
+}
+
+/* Editor Component */
+.editor {
+    width: 80%;
+    height: auto;
+    margin: 0.75rem 1.5rem 0.75rem 0.75rem;
+}
+  
+/* Sidebar Component*/
+.sidebar {
+    width: 20%;
+    height: auto;
+    margin: 0.75rem 0.75rem 0.75rem 1.5rem;
+}
+
+.sidebar__header, .sidebar__notes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 1rem 0rem 0.25rem;
+}
+
+.sidebar__notes h3 {
+    font-family: "Passion One", sans-serif;
+    font-size: 3rem;
+    letter-spacing: 0.05rem;
+    -webkit-text-stroke: 0.1rem black;
+    margin: 0rem 0.75rem 0rem 0rem;
+}
+
+.new-note-button {
+    line-height: 0rem;
+    height: 2.25rem;
+    width: 2.25rem;
+    
+    font-family: "Passion One", sans-serif;
+    font-weight: bold;
+    font-size: 2.25rem;
+    -webkit-text-stroke: 0.1rem black;
+
+    border: 0.1rem black solid;
+    border-radius: 50%;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+/* Sidebar Note Element */
+.note-element {
+    overflow: hidden;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border: 0.1rem black solid;
+    border-radius: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.note-title {
+    padding: 1.5rem 1rem;
+    margin: 0;
+    font-family: "Passion One", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.1rem;
+
+    -webkit-text-stroke: 0.05rem black;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.note-title__input {
+    background: transparent;
+    color: white;
+}
+
+.icon-container {
+    display: block;
+    padding: 0rem 1rem;
+
+}
+
+.note-icon {
+    display: block;
+    padding: 0.2rem;
+    color: black;
+    font-size: 2rem;
+}
+
+.note-icon:hover {
+    transform: scale(1.25);
+}
+  
+  /* Selected Note */
+.selected-note {
+    font-family: "Passion One", sans-serif;
+    font-size: 2rem !important;
+    font-weight: 800;
+    letter-spacing: 0.1rem;
+    -webkit-text-stroke: 0.1rem black;
+
+}
+  
+
+

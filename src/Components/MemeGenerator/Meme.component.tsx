@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { toPng } from 'html-to-image';
 import TextareaAutosize from 'react-textarea-autosize';
-
-import { MemeType, MemeDataType } from '../../Types/Meme.type';
-import styles from '../../stylesheets/MemeGenerator.module.css';
 import MemeText from './MemeText.component';
+import styles from '../../stylesheets/MemeGenerator.module.css';
+import { MemeType, MemeDataType } from '../../Types';
 
 const Meme = () => {
 
@@ -100,21 +99,3 @@ const Meme = () => {
 };
 
 export default Meme;
-/** */
-
-/**
- * 
-<div className={`${styles["meme-image__text-position"]} ${styles["top"]}`}
-                                ref={ref} style={{ fontSize }}
-                            >
-                                <span className={styles["meme-text"]}>
-                                    {meme.topText}
-                                    </span>
-                            </div>
-
-
-                            <div className={`${styles["meme-image__text-position"]} ${styles["bottom"]}`}
-                            >
-                                <span className={`${styles["meme-text"]}`}>{meme.bottomText}</span>
-                            </div>
- *  */

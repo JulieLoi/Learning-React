@@ -1,11 +1,12 @@
+import React from 'react';
 import styles from '../../stylesheets/ReactFacts.module.css';
 
 interface Props {
-    darkMode: boolean
-    toggleDarkMode: Function
+    darkMode: boolean;
+    setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Navbar: React.FC<Props> = ({ darkMode, toggleDarkMode })  => {
+const Navbar: React.FC<Props> = ({ darkMode, setDarkMode })  => {
     return (
         <nav className={`${styles["nav"]} ${darkMode ? styles["nav__dark"] : styles["nav__light"]}`}>
             <img 
@@ -18,7 +19,7 @@ const Navbar: React.FC<Props> = ({ darkMode, toggleDarkMode })  => {
 
             <div className={`${styles["toggler"]} ${darkMode ? styles["toggler__dark"] : styles["toggler__light"]}`}>
                 <p className={`${styles["toggler__text"]} ${darkMode ? "" : styles["toggler__text-underline"]}`}>Light</p>
-                <div className={styles["toggler__slider"]} onClick={() => toggleDarkMode()}>
+                <div className={styles["toggler__slider"]} onClick={() => setDarkMode(prev => !prev)}>
                     <div className={styles["toggler__slider-circle"]}></div>
                 </div>
                 <p className={`${styles["toggler__text"]} ${darkMode ? styles["toggler__text-underline"] : ""}`}>Dark</p>
