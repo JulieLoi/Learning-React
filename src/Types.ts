@@ -79,3 +79,15 @@ export type NotesApp = {
     currentNoteId: string,
     darkMode: boolean,
 }
+
+/* Tenzies Page */
+export type Die = {
+    id: string,
+    value: number,
+    isHeld: boolean
+}
+
+export type Tenzies = {
+    dice: Die[],
+    tenzies: boolean,
+}

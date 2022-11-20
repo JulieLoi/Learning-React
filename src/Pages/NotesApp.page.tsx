@@ -30,6 +30,7 @@ const NotesAppPage = () => {
 
 
     const [state, dispatch] = useReducer(notesReducer, initialState);
+    
 
 
     // Stores Dark Mode Setting

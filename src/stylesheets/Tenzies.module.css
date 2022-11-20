@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+/* Tenzies Page */
+.tenzies-page {
+    width: 100vw;
+    height: 100vh;
+    background: #1E6999;
+    margin: 0;
+    padding: 3rem;
+}
+
+.tenzies {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+
+    background: #FFE3C0;
+    border-radius: 0.75rem;
+    width: 75%;
+    height: 80vh;
+    margin: 0rem auto;
+    padding: 1.25rem;
+
+    font-family: "Karla", sans-serif;
+}
+
+.tenzies-info {
+    background: rgba(255,206,145, 0.5);
+    border: 0.25rem solid #FFCE91;
+    border-radius: 2rem;
+    padding: 1rem;
+}
+
+.tenzies__title {
+    font-size: 4rem;
+    font-weight: 700;
+    text-decoration: underline;
+    margin: 0;
+}
+
+.tenzies__txt {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+.tenzies__dice {
+    display: inline-grid;
+    grid-template: auto auto / repeat(5, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.tenzies__button {
+    text-align: center;
+    width: 25%;
+    padding: 0.5rem 0rem;
+
+    font-family: "Karla", sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: white;
+    background: #42799D;
+    border-radius: 1rem;
+
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.tenzies__button:hover {
+    transform: scale(1.1);
+}
+
+/* Die Component */
+.die {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    height: 5rem;
+    width: 5rem;
+  
+    background: white;
+    border: 0.1rem black solid;
+    border-radius: 0.75rem;
+    box-shadow: 0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.15);
+  
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.die:hover {
+    transform: scale(1.1);
+    box-shadow: 0rem 0rem 2rem rgba(0, 0, 0, 0.5);
+}
+
+.die-held {
+    transition: 0.4s;
+    background: #59E391;
+}
+  
+.die-dots {
+    display: inline-grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    gap: 0.25rem;
+}
+
+.dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background: black;
+}
+
+

@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
-import { BusinessCard, Joke, Note, NotesApp } from './Types';
-import { CardFormEnum, JokeEnum, NotesEnum } from "./Enums";
+import { BusinessCard, Joke, Note, NotesApp, Tenzies } from './Types';
+import { CardFormEnum, JokeEnum, NotesEnum, TenziesEnum } from "./Enums";
 var _ = require("underscore");
 
 
@@ -115,5 +115,52 @@ export const notesReducer = (state: NotesApp, action: { type: NotesEnum; payload
             });
         default:
             return state;
+    }
+}
+
+export const tenziesReducer = (state: Tenzies, action: { type: TenziesEnum, payload?: any }) => {
+    switch (action.type) {
+        // Rolls 10 New Dice
+        case TenziesEnum.NewDice:
+            return (
+                {
+                    ...state,
+                    dice: [...Array(10)].map(() => ({id: faker.datatype.uuid(), value: Math.ceil(Math.random() * 6), isHeld: false }))
+                }
+            )
+
+        // Rolls all dice not held
+        case TenziesEnum.RollDice:
+            return (
+                {
+                    ...state,
+                    dice: state.dice.map(die => die.isHeld ? die : { ...die, value: Math.ceil(Math.random() * 6)})
+                }
+            );
+            
+        // Changes a Die's isHeld value (boolean)
+        case TenziesEnum.HoldDie:
+            return (
+                {
+                    ...state,
+                    dice: state.dice.map(die => die.id !== action.payload ? die : { ...die, isHeld: !die.isHeld })
+                }
+            )
+
+        // Change Tenzies (boolean) - true for win
+        case TenziesEnum.ChangeTenzies: 
+            return { ...state, tenzies: !state.tenzies };
+        
+        // New Tenzies Game
+        case TenziesEnum.NewGame:
+            return (
+                {
+                    dice: [...Array(10)].map(() => ({id: faker.datatype.uuid(), value: Math.ceil(Math.random() * 6), isHeld: false })),
+                    tenzies: false,
+                    numRolls: 0,
+                }
+            )
+    
+        default: return state;
     }
 }

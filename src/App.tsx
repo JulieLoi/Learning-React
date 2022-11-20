@@ -9,6 +9,7 @@ import AirBnbExperiencePage from './Pages/AirBnbExperience.page';
 import TravelJournalPage from './Pages/TravelJournal.page';
 import MemeGeneratorPage from './Pages/MemeGenerator.page';
 import NotesAppPage from './Pages/NotesApp.page';
+import TenziesPage from './Pages/Tenzies.page';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Route path="/traveljournal" element={<TravelJournalPage />}>Travel Journal Page</Route>
       <Route path="/memegenerator" element={<MemeGeneratorPage />}>Meme Generator Page</Route>
       <Route path="/notesapp" element={<NotesAppPage />}>Notes App Page</Route>
+      <Route path="/tenzies" element={<TenziesPage />}>Tenzies Page</Route>
       <Route path="*" element={ <Navigate to="/home" /> } />
     </Routes>
   )

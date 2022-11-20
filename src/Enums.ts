@@ -41,5 +41,13 @@ export enum NotesEnum {
     UpdateCurrentNoteId = "UPDATE_CURRENT_NOTE_ID",
     ChangeDarkMode = "CHANGE_DARK_MODE",
     DeleteNote = "DELETE_NOTE",
-    EditNoteTitle = "EDIT_NOTE_TITLE"
+    EditNoteTitle = "EDIT_NOTE_TITLE",
+}
+
+export enum TenziesEnum {
+    NewDice = "NEW_DICE",
+    RollDice = "ROLL_DICE",
+    HoldDie = "HOLD_DIE",
+    ChangeTenzies = "CHANGE_TENZIES_VALUE",
+    NewGame = "NEW_GAME",
 }
