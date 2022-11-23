@@ -28,8 +28,15 @@ const QuizzicalHomePage: React.FC<Props> = ({ state, dispatch, getQuestions }) =
             <div className={styles["home"]}>
                 <h1 className={styles["home__title"]}>Quizzical</h1>
                 <p className={styles["home__text"]}>
-                    Quizzical uses the Open Trivia Database, which provides
-                    a JSON API for use in programming projects.
+                    Quizzical uses the&nbsp;
+                    <span>
+                        <a href="https://opentdb.com/" target="_blank" rel="noreferrer"
+                            className={styles["home__link"]}
+                        >
+                        Open Trivia Database
+                        </a>
+                    </span>
+                    , which provides a JSON API for use in programming projects.
                 </p>
                 <Form 
                     state={state}

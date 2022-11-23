@@ -7,14 +7,12 @@
 @value rf-l-toggler-txt: #2B283A;
 
 
-
 /* Jokes and Puns Colors */
 @value joke-btn: rgb(76, 175, 80);
 
 
 /* Travel Journal Colors */
 @value img-shadow: rgba(0, 140, 186, 0.5);
-
 
 
 /* Notes App Colors*/
@@ -25,3 +23,5 @@
 @value dm-bg: rgb(119, 119, 119);
 @value dm-txt: rgb(230, 230, 230);
 @value dm-selected: #4A4E74; 
+
+

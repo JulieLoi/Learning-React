@@ -19,6 +19,7 @@
     background-size: 95px 95px, 95px 95px, 47.5px 47.5px, 47.5px 47.5px;
     padding: 0;
     margin: 0;
+    overflow-x: hidden;
 }
 
 .button {
@@ -119,6 +120,8 @@
     font-weight: 700;
     font-size: 4rem;
     text-align: center;
+    text-decoration: underline;
+    letter-spacing: 0.5rem;
     margin: 0;
 }
 
@@ -127,9 +130,16 @@
     font-family: "Karla", sans-serif;
     font-size: 1.5rem;
     text-align: center;
-
     margin: 0;
     padding: 1rem 0;
+}
+
+.home__link {
+    color: #35407f;
+}
+
+.home__link:hover {
+    color: #73778a;
 }
 
 .home__button {
@@ -185,8 +195,13 @@
 }
 
 /* Quiz */
+.quiz-container {
+    width: 99vw;
+    padding: 0rem 5%;
+}
+
 .quiz {
-    margin: 2rem 15%;
+    margin: 2rem auto;
     color: #35407f;
 }
 
@@ -195,6 +210,7 @@
     font-weight: 700;
     font-size: 5rem;
     text-align: center;
+    text-decoration: underline;
     letter-spacing: 1rem;
     margin: 0;
 }
@@ -233,11 +249,19 @@
     align-self: center;
 }
 
-.question__category {
+.question__difficulty {
     font-family: "Inter", sans-serif;
     font-size: 1.25rem;
     font-weight: 700;
-    margin: 0rem 0rem 1.5rem 0.25rem;
+    margin: 0rem 0rem 0.5rem 0.25rem;
+    
+}
+
+.question__hr {
+    margin: 0;
+    height: 0.1rem;
+    border: none;
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(0%, black));
 }
 
 .question__text {

@@ -1,10 +1,12 @@
 import { useReducer, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { QuizEnum } from '../Enums';
+
 import QuizzicalHomePage from '../Pages/QuizzicalHome.page';
 import QuizzicalQuizPage from '../Pages/QuizzicalQuiz.page';
+
 import { quizzicalReducer, quizReducer } from '../Reducers';
 import { Quizzical, QuizzicalQuiz } from '../Types';
+import { QuizEnum } from '../Enums';
 
 const QuizzicalRoutes = () => {
 

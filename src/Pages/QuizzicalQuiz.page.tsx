@@ -47,9 +47,10 @@ const QuizzicalQuizPage: React.FC<Props> = ({ state, dispatch, quizState, quizDi
             >
                 <div className={styles["question-header"]}>
                     <h2>
-                        <span className={styles["question-header__number"]}>Question {index + 1}</span>
-                        &nbsp;
-                        <span style={{ fontWeight: 400 }}>- {capitalizeFirstLetter(q.difficulty)}</span>
+                        <span className={styles["question-header__number"]}>Question {index + 1}</span>&nbsp;
+                        <span style={{ fontWeight: 400 }}>
+                            ({q.category.replace(":", " -")})
+                        </span>
                     </h2>
                     {quizState.submittedQuiz && 
                         (q.selectedAnswer === "true" ? 
@@ -64,10 +65,12 @@ const QuizzicalQuizPage: React.FC<Props> = ({ state, dispatch, quizState, quizDi
                     }
                 </div>
 
-                <h3 className={styles["question__category"]}>
-                    Category:&nbsp;
-                    <span style={{ fontWeight: 400 }}>{q.category.replace(":", " -")}</span>
+                <h3 className={styles["question__difficulty"]}>
+                    Difficulty:&nbsp;
+                    <span style={{ fontWeight: 400 }}>{capitalizeFirstLetter(q.difficulty)}</span>
+                    
                 </h3>
+                <hr className={styles["question__hr"]} />
                 <p className={styles["question__text"]}>{q.question}</p>
                 
 
@@ -93,60 +96,62 @@ const QuizzicalQuizPage: React.FC<Props> = ({ state, dispatch, quizState, quizDi
 
     // Quizzical Quiz Page
     return (
-        <div className={`${styles["full-page"]}`}>
-            {quizState.failedSubmit &&
-                <div className={styles["alert"]}>
-                    <span><b>Please answer the remaining questions</b> (highlighted red)<b>!</b></span>
-                </div>
-            }
-            {quizState.questions.length === 0 ?
-                <div style={{ height: "100vh" }} className={styles["center"]}>
-                    <div>
-                        <div className={styles["loader"]} />
-                        <h1 className={styles["loader__text"]}>Loading</h1>
+        <div className={`${styles["full-page"]} ${styles["center"]}`}>
+            <div>
+                {quizState.failedSubmit &&
+                    <div className={styles["alert"]}>
+                        <span><b>Please answer the remaining questions</b> (highlighted red)<b>!</b></span>
                     </div>
-                </div>
-                :
-                <>
-                    <div className={styles["quiz"]}>
-                        <h1 className={styles["quiz__title"]}>Quizzical</h1>
+                }
+                {quizState.questions.length === 0 ?
+                    <div style={{ height: "100vh" }} className={styles["center"]}>
                         <div>
-                            {questionElements()}
+                            <div className={styles["loader"]} />
+                            <h1 className={styles["loader__text"]}>Loading</h1>
                         </div>
                     </div>
-                    <div className={styles["center"]}>
-                        {quizState.submittedQuiz ?
-                            <>
-                                <p className={styles["submit-text"]}>
-                                    You got {quizState.numCorrect}/{quizState.questions.length} questions correct!
-                                </p>
-                                <button className={styles["button"]}
-                                    onClick={() => quizDispatch({ type: QuizEnum.NewQuiz })} 
-                                >
-                                    New Quiz
-                                </button>                            
-                            </>
-                            :
-                            <>
-                                <button className={styles["button"]}
-                                    onClick={() => quizDispatch({ type: QuizEnum.SubmitQuiz })}
-                                >
-                                    Submit Quiz
-                                </button>
-                            </>
-                        }
-                    </div>
-                    {quizState.submittedQuiz &&
+                    :
+                    <div className={styles["quiz-container"]}>
+                        <div className={styles["quiz"]}>
+                            <h1 className={styles["quiz__title"]}>Quizzical</h1>
+                            <div>
+                                {questionElements()}
+                            </div>
+                        </div>
                         <div className={styles["center"]}>
-                            <Form 
-                                state={state}
-                                dispatch={dispatch}
-                            />
+                            {quizState.submittedQuiz ?
+                                <>
+                                    <p className={styles["submit-text"]}>
+                                        You got {quizState.numCorrect}/{quizState.questions.length} questions correct!
+                                    </p>
+                                    <button className={styles["button"]}
+                                        onClick={() => quizDispatch({ type: QuizEnum.NewQuiz })} 
+                                    >
+                                        New Quiz
+                                    </button>                            
+                                </>
+                                :
+                                <>
+                                    <button className={styles["button"]}
+                                        onClick={() => quizDispatch({ type: QuizEnum.SubmitQuiz })}
+                                    >
+                                        Submit Quiz
+                                    </button>
+                                </>
+                            }
                         </div>
-                    }
-                    <div style={{ height: "10vh" }}></div>
-                </>
-            }
+                        {quizState.submittedQuiz &&
+                            <div className={styles["center"]}>
+                                <Form 
+                                    state={state}
+                                    dispatch={dispatch}
+                                />
+                            </div>
+                        }
+                        <div style={{ height: "10vh" }}></div>
+                    </div>
+                }
+            </div>
         </div>
     );
 };
