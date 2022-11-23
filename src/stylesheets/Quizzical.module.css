@@ -30,21 +30,40 @@
     padding: 1rem 3rem;
     border-radius: 5rem;
 
+    transition: 0.4s;
     cursor: pointer;
 }
 
 .button:hover {
+    transition: 0.4s;
     transform: scale(1.1);
 }
 
 /* Loader */
+.loader-container {
+    position: absolute;
+
+    padding: 2rem 4rem;
+    border: 0.25rem solid rgba(125, 144, 241, 0.75);
+    border-radius: 3rem;
+
+    background-color: #ffffff;
+    background: radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent), 
+        radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent) 37.5px 37.5px, 
+        linear-gradient(#f5e2bf 3px, transparent 3px) 0 -1.5px, 
+        linear-gradient(90deg, #f5e2bf 3px, #ffffff 3px) -1.5px 0;
+    background-size: 75px 75px, 75px 75px, 37.5px 37.5px, 37.5px 37.5px;
+}
+
 .loader {
     margin: auto;
+    width: 10rem;
+    height: 10rem;
+
     border: 1.25rem solid rgb(228, 238, 255);
     border-radius: 50%;
     border-top: 1.25rem solid rgba(125, 144, 241, 0.75);
-    width: 10rem;
-    height: 10rem;
+
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
 }
@@ -241,6 +260,8 @@
     opacity: 0;
     position: fixed;
     width: 0;
+    transition: 0.4s;
+
 }
 
 .radio-text {
@@ -258,26 +279,32 @@
 
     border: 2px solid #293264;
     border-radius: 2rem;
+    transition: 0.4s;
+
 }
 
 .radio-text__working {
     background: rgba(185, 228, 255, 0.25);
+    transition: 0.4s;
 }
 /* Radio Text Hover */
 .radio-text__working:hover {
     background: #B9F5DA;
     cursor: pointer;
+    transition: 0.4s;
 }
 
 /* Checked Radio Button / Text */
 .radio-input__working:checked + label {
     background: #B9F5DA;
     border-color: transparent;
+    transition: 0.4s;
 }
 
 /* Radio Button / Text Focused */
 .radio-input__working:focus + label {
     border: 2px dashed #444;
+    transition: 0.4s;
 }
 
 /* Check Answers Colored */
@@ -293,9 +320,10 @@
 
 .incorrect-answer:checked + label {
     background: #F8BCBC;
+    transition: 1s;
 }
 
-/* Submit Quiz CSS */
+/* Submit Text */
 .submit-text {
     font-family: "Karla", sans-serif;
     font-size: 2rem;
