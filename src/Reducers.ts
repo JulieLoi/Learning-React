@@ -1,9 +1,10 @@
 import { faker } from "@faker-js/faker";
-import { BusinessCard, Joke, Note, NotesApp, Tenzies } from './Types';
-import { CardFormEnum, JokeEnum, NotesEnum, TenziesEnum } from "./Enums";
+import { decode } from "html-entities";
+import { BusinessCard, Joke, Note, NotesApp, Tenzies, Quizzical, QuizzicalQuiz, QuizQuestion } from './Types';
+import { CardFormEnum, JokeEnum, NotesEnum, TenziesEnum, QuizzicalEnum, QuizEnum } from "./Enums";
 var _ = require("underscore");
 
-
+// Digital Business Card Project
 export const cardFormReducer = (state: BusinessCard, action: { type: CardFormEnum; payload: string; }) => {
     switch (action.type) {
         case CardFormEnum.Image:           return {...state, image: action.payload}
@@ -22,6 +23,7 @@ export const cardFormReducer = (state: BusinessCard, action: { type: CardFormEnu
     }
 }
 
+// Jokes Project
 export const jokeReducer = (state: Joke[], action: { type: JokeEnum; payload?: Joke[]; }) => {
     switch (action.type) {
         case JokeEnum.BestRated:
@@ -45,6 +47,7 @@ export const jokeReducer = (state: Joke[], action: { type: JokeEnum; payload?: J
     }
 }
 
+// Notes App Project
 export const notesReducer = (state: NotesApp, action: { type: NotesEnum; payload?: any }) => {
     switch (action.type) {
         // Set State
@@ -59,7 +62,6 @@ export const notesReducer = (state: NotesApp, action: { type: NotesEnum; payload
                 body: "# New Note",
                 editTitle: false,
             }
-    
             return ({ ...state, notes: [newNote, ...state.notes], currentNoteId: newNote.id });
 
         // Updates the current note's title text
@@ -70,7 +72,6 @@ export const notesReducer = (state: NotesApp, action: { type: NotesEnum; payload
                 if (oldNote.id === state.currentNoteId) { newNotes1.unshift( {...oldNote, title: action.payload} )}
                 else { newNotes1.push(oldNote) }
             }
-
             return ({...state, notes: newNotes1});
 
         // Updates the current note's body text
@@ -81,15 +82,11 @@ export const notesReducer = (state: NotesApp, action: { type: NotesEnum; payload
                 if (oldNote.id === state.currentNoteId) { newNotes2.unshift( {...oldNote, body: action.payload} )}
                 else { newNotes2.push(oldNote) }
             }
-
             return ({...state, notes: newNotes2});
 
         // Updates the current, selected note
         case NotesEnum.UpdateCurrentNoteId:
-            return ({
-                ...state,
-                currentNoteId: action.payload
-            })
+            return ({ ...state, currentNoteId: action.payload });
 
         // Change dark mode
         case NotesEnum.ChangeDarkMode:
@@ -97,55 +94,43 @@ export const notesReducer = (state: NotesApp, action: { type: NotesEnum; payload
 
         // Delete a Note (Given the Note ID)
         case NotesEnum.DeleteNote:
-            return ({
-                ...state,
+            return ({...state,
                 currentNoteId: state.notes[1].id,
                 notes: state.notes.filter(note => note.id !== action.payload),
-            })
+            });
 
-
+        // Edits a Note's Title
         case NotesEnum.EditNoteTitle:
-            //setNotes(prev => prev.map(note => note.id === note.id ? { ...note, editTitle: true }: note))
-
-            return ({
-                ...state,
+            return ({...state,
                 notes: state.notes.map(note => note.id === action.payload.noteId ? 
-                        { ...note, editTitle: action.payload.noteEdit } : note
-                    )
+                    { ...note, editTitle: action.payload.noteEdit } : note
+                )
             });
         default:
             return state;
     }
 }
 
+// Tenzies Project
 export const tenziesReducer = (state: Tenzies, action: { type: TenziesEnum, payload?: any }) => {
     switch (action.type) {
         // Rolls 10 New Dice
         case TenziesEnum.NewDice:
-            return (
-                {
-                    ...state,
-                    dice: [...Array(10)].map(() => ({id: faker.datatype.uuid(), value: Math.ceil(Math.random() * 6), isHeld: false }))
-                }
-            )
+            return ({...state,
+                dice: [...Array(10)].map(() => ({id: faker.datatype.uuid(), value: Math.ceil(Math.random() * 6), isHeld: false }))
+            });
 
         // Rolls all dice not held
         case TenziesEnum.RollDice:
-            return (
-                {
-                    ...state,
-                    dice: state.dice.map(die => die.isHeld ? die : { ...die, value: Math.ceil(Math.random() * 6)})
-                }
-            );
+            return ({...state,
+                dice: state.dice.map(die => die.isHeld ? die : { ...die, value: Math.ceil(Math.random() * 6)})
+            });
             
         // Changes a Die's isHeld value (boolean)
         case TenziesEnum.HoldDie:
-            return (
-                {
-                    ...state,
-                    dice: state.dice.map(die => die.id !== action.payload ? die : { ...die, isHeld: !die.isHeld })
-                }
-            )
+            return ({...state,
+                dice: state.dice.map(die => die.id !== action.payload ? die : { ...die, isHeld: !die.isHeld })
+            })
 
         // Change Tenzies (boolean) - true for win
         case TenziesEnum.ChangeTenzies: 
@@ -153,14 +138,93 @@ export const tenziesReducer = (state: Tenzies, action: { type: TenziesEnum, payl
         
         // New Tenzies Game
         case TenziesEnum.NewGame:
-            return (
-                {
-                    dice: [...Array(10)].map(() => ({id: faker.datatype.uuid(), value: Math.ceil(Math.random() * 6), isHeld: false })),
-                    tenzies: false,
-                    numRolls: 0,
-                }
-            )
+            return ({
+                dice: [...Array(10)].map(() => ({id: faker.datatype.uuid(), value: Math.ceil(Math.random() * 6), isHeld: false })),
+                tenzies: false,
+                numRolls: 0,
+            });
     
+        default: return state;
+    }
+}
+
+// Quizzical Project
+export const quizzicalReducer = (state: Quizzical, action: { type: QuizzicalEnum, payload?: any }) => {
+    switch (action.type) {
+        case QuizzicalEnum.SetApi:
+            const basicAPI = "https://opentdb.com/api.php?";
+            const amountAPI = "amount=".concat(state.form.amount);
+            const categoryAPI = (state.form.category === "" ? "" : "&category=".concat(state.form.category));
+            const difficultyAPI = (state.form.difficulty === "" ? "" : "&difficulty=".concat(state.form.difficulty));
+            const typeAPI = (state.form.type === "" ? "" : "&type=".concat(state.form.type));
+            const api = basicAPI.concat(amountAPI).concat(categoryAPI).concat(difficultyAPI).concat(typeAPI);
+            return ({ ...state, api: api } );
+        case QuizzicalEnum.SetFormAmount:
+            return ({ ...state, form: { ...state.form, amount: action.payload }});
+        case QuizzicalEnum.SetFormCategory: 
+            return ({ ...state, form: { ...state.form, category: action.payload }});
+        case QuizzicalEnum.SetFormDifficulty:
+            return ({ ...state, form: { ...state.form, difficulty: action.payload }});
+        case QuizzicalEnum.SetFormType:
+            return ({ ...state, form: { ...state.form, type: action.payload }});
+    
+        default: return state;
+    }
+}
+
+// Quizzical Quiz Reducer
+export const quizReducer = (state: QuizzicalQuiz, 
+    action: { type: QuizEnum, database?: QuizQuestion[], id?: string, answer?: string }) => {
+
+    switch (action.type) {
+        // Creates Questions from API Database results
+        case QuizEnum.SetUp:
+            const newQuestions: QuizQuestion[] = action.database!.map((q: QuizQuestion) => (
+                {
+                    id: faker.datatype.uuid(),
+                    ...q,
+                    category: decode(q.category),
+                    question: decode(q.question),
+                    correct_answer: decode(q.correct_answer),
+                    incorrect_answers: q.incorrect_answers.map(x => decode(x)),
+                    selectedAnswer: "",
+                }
+            ));
+            return { ...state, questions: newQuestions };
+
+        // Changes a Question's Selected Answer Value
+        case QuizEnum.SetAnswer:
+            const updatedAnswer: QuizQuestion[] = 
+                state.questions.map((q: QuizQuestion) => 
+                    q.id === action.id! ? { ...q, selectedAnswer: action.answer!} : q
+                );
+            return { ...state, questions: updatedAnswer };
+
+        // Submit Quiz
+        case QuizEnum.SubmitQuiz:
+            // Check if all the questiosn were answered
+            let missingAnswers: boolean = false ;
+            state.questions.forEach((q: QuizQuestion) => {
+                if (q.selectedAnswer === "") {
+                    missingAnswers = true;
+                    return;
+                }
+            });
+
+            // Check Correct Answers (if all exists)
+            if (!missingAnswers) {
+                let myCounter = 0;
+                state.questions.forEach((q: QuizQuestion) => {
+                    if (q.selectedAnswer === "true") myCounter++;
+                });
+                return { ...state, submittedQuiz: true, failedSubmit: false, numCorrect: myCounter };
+            }
+            else { return { ...state, failedSubmit: true }; }
+
+
+        // Set Failed Submit
+        case QuizEnum.NewQuiz:
+            return { questions: [], submittedQuiz: false, failedSubmit: false, numCorrect: 0 }
         default: return state;
     }
 }

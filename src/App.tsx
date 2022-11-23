@@ -10,6 +10,7 @@ import TravelJournalPage from './Pages/TravelJournal.page';
 import MemeGeneratorPage from './Pages/MemeGenerator.page';
 import NotesAppPage from './Pages/NotesApp.page';
 import TenziesPage from './Pages/Tenzies.page';
+import QuizzicalRoutes from './Routes/QuizzicalRoutes';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <Route path="/memegenerator" element={<MemeGeneratorPage />}>Meme Generator Page</Route>
       <Route path="/notesapp" element={<NotesAppPage />}>Notes App Page</Route>
       <Route path="/tenzies" element={<TenziesPage />}>Tenzies Page</Route>
+      <Route path="/quizzical/*" element={<QuizzicalRoutes />} />
       <Route path="*" element={ <Navigate to="/home" /> } />
     </Routes>
   )

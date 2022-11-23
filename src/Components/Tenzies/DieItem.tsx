@@ -56,6 +56,7 @@ const DieItem: React.FunctionComponent<IDieItemProps> = ({ die, dispatch }) => {
     const [face, setFace] = useState<string[]>(selectFace()!);
     useEffect(() => {
         setFace(selectFace()!);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [die.value])
     
 

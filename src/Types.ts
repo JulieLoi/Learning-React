@@ -1,3 +1,4 @@
+
 /* Airbnb Experience Page */
 export type BusinessCard = {
     image: string,
@@ -91,3 +92,37 @@ export type Tenzies = {
     dice: Die[],
     tenzies: boolean,
 }
+
+/* Quizzical Page */
+export type ApiForm = {
+    amount: string,
+    category: string,
+    difficulty: string,
+    type: string,
+}
+
+export type Quizzical = {
+    api: string,
+    form: ApiForm,
+}
+
+export type QuizQuestion = {
+    id?: string,
+    question: string,
+    type: string, 
+    difficulty: string,
+    category: string,
+    correct_answer: string,
+    incorrect_answers: string[],
+    selectedAnswer: string,
+}
+
+
+export type QuizzicalQuiz = {
+    questions: QuizQuestion[],              // Array of quiz questions and answers
+    submittedQuiz: boolean,                 // Turns in quiz choices and grades the quiz
+    failedSubmit: boolean,                  // Checks for a failed submit (unanswered questions)
+    numCorrect: number,                     // Number of correct answers
+}
+
+

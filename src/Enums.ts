@@ -31,7 +31,9 @@ export enum JokeEnum {
     ClearFilter = "CLEAR_FILTER",
 }
 
-
+/**
+ * Enum for Notes App Page
+ */
 export enum NotesEnum {
     SetState = "SET_STATE",
     CreateNote = "CREATE_NOTE",
@@ -44,10 +46,34 @@ export enum NotesEnum {
     EditNoteTitle = "EDIT_NOTE_TITLE",
 }
 
+/**
+ * Enum for Tenzies Page
+ */
 export enum TenziesEnum {
     NewDice = "NEW_DICE",
     RollDice = "ROLL_DICE",
     HoldDie = "HOLD_DIE",
     ChangeTenzies = "CHANGE_TENZIES_VALUE",
     NewGame = "NEW_GAME",
+}
+
+/**
+ * Enum for Quizzical Pages
+ */
+export enum QuizzicalEnum {
+    SetApi = "SET_API",
+    SetFormAmount = "SET_FORM_AMOUNT",
+    SetFormCategory = "SET_FORM_CATEGORY",
+    SetFormDifficulty = "SET_FORM_DIFFICULTY",
+    SetFormType = "SET_FORM_TYPE",
+}
+
+/**
+ * Enum for Quizzical Quiz
+ */
+export enum QuizEnum {
+    SetUp = "SETUP_QUIZ",
+    SetAnswer = "SELECTED_ANSWER",
+    SubmitQuiz = "SUBMIT_QUIZ",
+    NewQuiz = "NEW_QUIZ",
 }
