@@ -159,6 +159,7 @@ Added title to notes. (edit based on taskify)
 -You can edit title with double click or edit icon
 
 
+
 # Tenzies
 
 Updated CSS

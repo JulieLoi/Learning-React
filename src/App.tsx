@@ -1,4 +1,6 @@
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { HiArrowLeft } from 'react-icons/hi';
+import { AiOutlineHome } from 'react-icons/ai';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import HomePage from './Pages/Home.page';
@@ -19,8 +21,23 @@ function App() {
 
     return (
         <>
-            <div>
-                <button onClick={() => navigate(-1)}>Back</button> 
+            <div className="navbar">
+                <div className="back-icon__container">
+                    <HiArrowLeft 
+                        className="icon back-icon"
+                        onClick={() => navigate(-1)}
+                    />
+                </div>
+                <div className="react__container">
+                    <img src="/logo192.png" alt="react logo" className="react__logo" />
+                    <span className="react__text">Learning React</span>
+                </div>
+                <div className="home-container" onClick={() => navigate("/home")}>
+                    <AiOutlineHome 
+                        className="icon"
+                    />
+                    <span className="home-text">Home</span>
+                </div>
 
             </div>
             <Routes>

@@ -1,3 +1,11 @@
+/* Home Page */
+export type HomeCard = {
+    id: string,
+    image: string,
+    title: string,
+    description: string,
+    projectLink: string,
+}
 
 /* Airbnb Experience Page */
 export type BusinessCard = {
