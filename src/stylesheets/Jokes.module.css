@@ -1,23 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;700&family=Poppins:wght@300;400;700&display=swap');
 
 @value values: "./colors.css";
-@value joke-btn from values;
+@value joke-btn, dm-bg from values;
 
 /* Jokes Page*/
 .jokes-page {
     font-family: "Poppins", sans-serif;
-    background: linear-gradient(rgba(239,249,249,1), rgba(182,199,226,1), white);
     height: auto;
+}
+
+.jokes-page__lm {
+    background: linear-gradient(rgba(182,199,226,1), white);
+}
+
+.jokes-page__dm {
+    background: linear-gradient(black, rgba(32,45,58,1), rgba(90,92,106,1), white);
 }
 
 .jokes-page__body {
     display: flex;
+    margin-bottom: 5rem;
 }
 
 .jokes {
     display: flex;
     width: 78%;
-    height: 86vh;
     flex-wrap: wrap;
     justify-content: space-around;
 }
@@ -26,7 +33,8 @@
 .nav {
     margin: 0;
     justify-content: space-between;
-    background: linear-gradient(black, rgba(32,45,58,1), rgba(90,92,106,1)) !important;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 0.15rem;
 }
 
 .nav-title {
@@ -41,41 +49,56 @@
 }
 
 .nav-title__text {
-    font-family: "Oswald", sans-serif;
     font-size: 2rem !important;
     font-weight: 700;
-    letter-spacing: 0.15rem;
-
-    background: -webkit-linear-gradient(right, #0093E9, #80D0C7);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 0.05rem black;
 }
 
 .nav-switch {
     margin: 0.5rem 3rem;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .nav-switch__text {
     font-size: 1.25rem;
-    color: white;
+    font-weight: 700;
     text-align: center;
 }
 
+.dm-nav {
+    color: white;
+}
+
+.lm-nav {
+    color: black;
+}
+
 /* Filter Component */
-.filter {
-    display: flex;
-    flex-direction: column;
-    height: 86vh;
-    width: 20%;
-    margin: 0.5rem; 
-    padding: 1.5rem;
+.filter__container {
+    width: 22%;
+}
+
+.lm-filter {
+    background: linear-gradient(rgb(236, 236, 236), whitesmoke, white);
+    color: black;
+    border: 0.2rem solid darkslategray;
+}
+
+.dm-filter {
     background: linear-gradient(black, rgba(32,45,58,1), rgba(90,92,106,1));
     color: white;
     border: 0.2rem solid darkslategray;
+}
+
+.filter {
+    position: sticky;
+    top: 1rem;
+    display: flex;
+    flex-direction: column;
+    height: 95vh;
+    
+    margin: 0.5rem; 
+    padding: 1.5rem;
     border-radius: 1rem;
 }
 
@@ -95,7 +118,6 @@
 
 .filter-span {
     display:block;
-    background: rgba(47,79,79,0.1);
     padding: 0.25rem 0rem 0rem 0rem;
 }
 
@@ -103,8 +125,12 @@
 
 
 /* Joke Component */
+.joke__container {
+    width: 30%;
+    height: auto;
+}
+
 .joke {
-    width: 27%;
     margin: 1rem 0rem 0rem 0.5rem;
     padding: 0.75rem;
 }
@@ -131,12 +157,13 @@
 .joke-title__btn {
     font-family: "Oswald", sans-serif;
     font-weight: 700;
+    width: 50%;
+    transition: 0.7s !important;
 }
 
 .joke-body {
     margin: 0 !important;
     padding: 0 !important;
-    height: 0rem !important;
 }
 
 /* The Joke Itself */
@@ -149,7 +176,19 @@
 
 .joke-body__punchline {
     font-size: 1rem;
+    border: 0.1rem solid darkgray;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.192);
+    opacity: 0;
+    transition: 0.5s;
 }
+
+.joke-body__punchline-show {
+    opacity: 1;
+    transition: 0.5s;
+}
+
 
 /* Joke Upvotes and Downvotes */
 .joke-footer {
@@ -160,6 +199,7 @@
     font-weight: 700;
     font-size: 1rem;
     -webkit-text-stroke: 0.5px black;
+    letter-spacing: 0.075rem;
 }
 
 .joke-vote span {

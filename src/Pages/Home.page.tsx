@@ -21,16 +21,6 @@ const HomePage = () => {
             <div>
                 <b>
                     Fix DIgital Card (fix the page... still not saving card image.)
-                    <br />
-                    Jokes Cards (Fix how the cards are made... add light/dark mode)
-                    <br />
-                    Fix Color Scheme of Tenzies and scroll of Tenzies
-                    <br />
-                    SAVE NOTES IN Note APP
-                    <br />
-                    Fix travel journal images
-                    <br />
-                    React Facts: Fix light/dark toggle
                 </b>
             </div>
             <div className={styles["project-cards"]}>

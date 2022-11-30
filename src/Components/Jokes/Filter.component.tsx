@@ -12,11 +12,12 @@ interface Props {
     setSortFilter: React.Dispatch<React.SetStateAction<string>>;
     typeFilter: string;
     setTypeFilter: React.Dispatch<React.SetStateAction<string>>;
+    darkMode: boolean;
 }
 
-const Filter: React.FC<Props> = ({ jokesData, dispatch, sortFilter, setSortFilter, typeFilter, setTypeFilter }) => {
+const Filter: React.FC<Props> = ({ jokesData, dispatch, sortFilter, setSortFilter, typeFilter, setTypeFilter, darkMode }) => {
     return (
-        <div className={styles["filter"]}>
+        <div className={`${styles["filter"]} ${styles[darkMode ? "dm-filter" : "lm-filter"]}`}>
             <span className={styles["filter__title"]}>Filter</span>
             <div>
                 <span className={styles["filter-type"]}>Type Filter</span>
@@ -129,20 +130,5 @@ const Filter: React.FC<Props> = ({ jokesData, dispatch, sortFilter, setSortFilte
         </div>
     );
 };
-
-
-/*
-            <Button 
-                variant="light"
-                onClick={() =>
-                    productDispatch({
-                        type: "CLEAR_FILTERS",
-                    })
-                }
-            >
-                Clear Filters
-            </Button>
-        </div>
-*/
 
 export default Filter;

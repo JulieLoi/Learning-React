@@ -29,6 +29,9 @@ For this entire React Project:
 -using react router
 
 
+USED THIS FOR BACKGROUND PATTERNS
+https://www.magicpattern.design/tools/css-backgrounds
+
 ## React Facts
 Completed
 

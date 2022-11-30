@@ -8,7 +8,9 @@ interface Props {
 
 const NavBar: React.FC<Props> = ({ darkMode, setDarkMode }) => {
     return (
-        <Navbar expand="lg" className={`${styles["nav"]}`}>
+        <Navbar bg={darkMode ? "dark" : "light"} variant={darkMode ? "dark" : "light"} 
+            className={`${styles["nav"]}`}
+        >
             <div className={styles["nav-title"]}>
                 <img src="/images/Jokes/buffoon.png" alt="jester hat"
                     className={styles["nav-title__icon"]}
@@ -16,7 +18,9 @@ const NavBar: React.FC<Props> = ({ darkMode, setDarkMode }) => {
                 <Navbar.Brand className={styles["nav-title__text"]}>Jokes and Puns</Navbar.Brand>
             </div>
             <div className={styles["nav-switch"]}>
-                <span className={styles["nav-switch__text"]} style={{ marginRight: "0.5rem" }}>
+                <span className={`${styles["nav-switch__text"]} ${styles[darkMode ? "dm-nav" : "lm-nav"]}`} 
+                    style={{ marginRight: "0.5rem" }}
+                >
                     Light
                 </span>
                 <label className={styles["switch"]}>
@@ -25,7 +29,9 @@ const NavBar: React.FC<Props> = ({ darkMode, setDarkMode }) => {
                     />
                     <span className={`${styles["slider"]} ${styles["round"]}`}></span>
                 </label>
-                <span className={styles["nav-switch__text"]} style={{ marginLeft: "0.5rem" }}>
+                <span className={`${styles["nav-switch__text"]} ${styles[darkMode ? "dm-nav" : "lm-nav"]}`} 
+                    style={{ marginLeft: "0.5rem" }}
+                >
                     Dark
                 </span>
             </div>

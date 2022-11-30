@@ -21,22 +21,29 @@ const JokesPage = () => {
 
     // Jokes Page
     return (
-        <div className={styles["jokes-page"]}>
+        <div className={`${styles["jokes-page"]} 
+                ${styles[darkMode ? "jokes-page__dm" : "jokes-page__lm"]}
+            `}
+        >
             <Navbar 
                 darkMode={darkMode}
                 setDarkMode={setDarkMode}
             />
             <div className={styles["jokes-page__body"]}>
-                <Filter 
-                    jokesData={jokesData}       dispatch={jokesDispatch}
-                    sortFilter={sortFilter}     setSortFilter={setSortFilter}
-                    typeFilter={typeFilter}     setTypeFilter={setTypeFilter}
-                />
+                <div className={styles["filter__container"]}>
+                    <Filter 
+                        jokesData={jokesData}       dispatch={jokesDispatch}
+                        sortFilter={sortFilter}     setSortFilter={setSortFilter}
+                        typeFilter={typeFilter}     setTypeFilter={setTypeFilter}
+                        darkMode={darkMode}
+                    />
+                </div>
                 <div className={styles["jokes"]}>
                     {jokesState.map((joke: Joke) => 
                         <JokeItem 
                             key={joke.id}
                             joke={joke}
+                            darkMode={darkMode}
                         />
                     )}
                 </div>

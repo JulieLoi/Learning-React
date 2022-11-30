@@ -94,8 +94,26 @@ export const notesReducer = (state: NotesApp, action: { type: NotesEnum; payload
 
         // Delete a Note (Given the Note ID)
         case NotesEnum.DeleteNote:
+            console.log("DELETE NOTE")
+            let newID: string =  "";
+
+            // Deleting the only remaining note
+            if (state.notes.length === 1) {
+                newID = "";
+            }
+    
+            // Deleting Current Note
+            else if (state.currentNoteId === action.payload) {
+                newID = state.notes.filter(note => note.id !== action.payload)[0].id;
+            }
+
+            // Delete Note that is not current note
+            else {
+                newID = state.currentNoteId;
+            }
+
             return ({...state,
-                currentNoteId: state.notes[1].id,
+                currentNoteId: newID,
                 notes: state.notes.filter(note => note.id !== action.payload),
             });
 
