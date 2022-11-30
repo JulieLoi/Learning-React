@@ -10,6 +10,7 @@
     background-color: #eee;
     background-repeat: no-repeat;
     background-position: 50%;
+    display: none;
 }
 
 .gutter.gutter-horizontal {

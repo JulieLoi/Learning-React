@@ -33,14 +33,14 @@ const Information: React.FC<Props> = ({ state }) => {
                     onClick={() => window.open(state.emailLink) }
                 >
                     <span>
-                        <SlEnvolope className={styles["btn-box__img"]} size="1.5rem" /> Email
+                        <SlEnvolope className={styles["btn-box__img"]} /> Email
                     </span>
                 </button>
                 <button type="button" className={styles["btn-box__button"]}
                     onClick={() => window.open(state.linkedInLink)}
                 >
                     <span>
-                        <SlSocialLinkedin className={styles["btn-box__img"]} size="1.5rem"/> LinkedIn
+                        <SlSocialLinkedin className={styles["btn-box__img"]} /> LinkedIn
                     </span>
                 </button>
             </div>

@@ -19,7 +19,7 @@ const ProjectCard: React.FC<IProjectCardProps> = ({ card }) => {
 
     return (
         <div className={styles["card__container"]}>
-            <Card className={styles["card"]}>
+            <Card className={styles["card"]} bg="light">
                 <a href={card.image} target="_blank" rel="noreferrer"
                     className={styles["card__link"]}
                 >

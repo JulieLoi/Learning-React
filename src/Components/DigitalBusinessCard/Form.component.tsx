@@ -8,31 +8,31 @@ import { CardFormEnum } from '../../Enums';
 interface Props {
     state: any;
     dispatch: React.Dispatch<{ type: any; payload: any; }>;
-    size: number;
     downloadFunction: () => void;
 }
 
-const Form: React.FC<Props> = ({ state, dispatch, size, downloadFunction }) => {
+const Form: React.FC<Props> = ({ state, dispatch, downloadFunction }) => {
 
-    // Handle Submit
+    // Handle Submit (Prevent Page Refresh)
     const handleSubmit = (event: any) => {
-        // 👇️ prevent page refresh
         event.preventDefault();
-        console.log("Type: " + (typeof event))
-        console.log('form submitted ✅');
     };
 
     // Form Component
     return (
-        <div className={styles["form-container"]} style={{ width: `${size - 5}%`}} >
+        <div className={styles["form-container"]} >
             <div className={styles["form-top"]}>
                 <span className={styles["form-title"]}>Digital Business Card Form</span>
-                <img src="/images/DigitalBusinessCard/business-card.png" alt="business card icon" 
-                    className={styles["form-image"]}
-                    onClick={downloadFunction}
-                />
+                <div className={styles["form-save"]}>
+                    <span>Save Card - </span>
+                    <img src="/images/DigitalBusinessCard/business-card.png" alt="business card icon" 
+                        className={styles["form-image"]}
+                        onClick={downloadFunction}
+                    />
+                </div>
             </div>
     
+            <div className={styles["form-scroll"]}>
             <form onSubmit={handleSubmit} className={styles["form"]}>
             <div className={styles["form__item"]}>
                 <label htmlFor="name">Full Name:</label>
@@ -159,6 +159,7 @@ const Form: React.FC<Props> = ({ state, dispatch, size, downloadFunction }) => {
                 />
             </div>
             </form>
+            </div>
         </div>
     );
 }

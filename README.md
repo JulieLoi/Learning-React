@@ -32,6 +32,10 @@ For this entire React Project:
 USED THIS FOR BACKGROUND PATTERNS
 https://www.magicpattern.design/tools/css-backgrounds
 
+USED THIS FOR HOME BACKGROUND
+https://doodad.dev/pattern-generator/
+
+
 ## React Facts
 Completed
 

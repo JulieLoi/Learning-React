@@ -57,7 +57,7 @@ const memeGeneratorProject: HomeCard = {
 const notesAppProject: HomeCard = {
     id: faker.datatype.uuid(),
     image: "https://mdg.imgix.net/assets/images/tools/bear.png",
-    title: "Markdown Notes App",
+    title: "Markdown Notes",
     description: "Notes app that can turn notes into a markdown...",
     projectLink: "/notesapp"
 }
@@ -77,7 +77,7 @@ const quizzicalProject: HomeCard = {
     image: "https://media.istockphoto.com/id/487063216/photo/too-many-questions.jpg?s=170667a&w=0&k=20&c=X4bpDkfeOQbGssJ4IDo38aPs2asgp56202898_hK-vo=",
     title: "Quizzical",
     description: "QUIZZICAL PROJECT DESCRIPTION",
-    projectLink: "/quizzical/*"
+    projectLink: "/quizzical/home"
 }
 
 
