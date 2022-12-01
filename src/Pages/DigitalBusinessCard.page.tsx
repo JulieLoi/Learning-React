@@ -10,6 +10,7 @@ import styles from '../stylesheets/DigitalBusinessCard.module.css';
 import { BusinessCard } from '../Types';
 import { cardFormReducer } from '../Reducers';
 
+
 const DigitalBusinessCardPage: React.FC = () => {
 
     // Initial Form Data and reducer
@@ -28,11 +29,10 @@ const DigitalBusinessCardPage: React.FC = () => {
         githubLink: "https://github.com",
     }
     const [cardState, cardDispatch] = useReducer(cardFormReducer, initialState);
-    
 
     // Download PNG
     const ref = useRef<HTMLDivElement>(null)
-    const onButtonClick = useCallback(() => {
+    const saveImage = useCallback(() => {
         if (ref.current === null) { return }
         toPng(ref.current, { cacheBust: true, })
           .then((dataUrl) => {
@@ -44,7 +44,7 @@ const DigitalBusinessCardPage: React.FC = () => {
             link.click();
           })
           .catch((err) => { console.log(err) })
-      }, [ref])
+    }, [ref]);
 
     // Digital Business Card Page
     return (
@@ -53,7 +53,7 @@ const DigitalBusinessCardPage: React.FC = () => {
                 <Form 
                     state={cardState}
                     dispatch={cardDispatch}
-                    downloadFunction={onButtonClick}
+                    downloadFunction={saveImage}
                 />
             </div>
             <div className={`${styles["card-section"]}`}

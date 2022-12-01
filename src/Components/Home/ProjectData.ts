@@ -36,21 +36,20 @@ const airbnbProject: HomeCard = {
 }
 
 
-const travelJournalProject: HomeCard = {
-    id: faker.datatype.uuid(),
-    image: "https://i.ytimg.com/vi/-QckkcD_9W8/maxresdefault.jpg",
-    title: "Travel Journal",
-    description: "uses a custom card component",
-    projectLink: "/traveljournal"
-}
-
-
 const memeGeneratorProject: HomeCard = {
     id: faker.datatype.uuid(),
     image: "https://wallpaperaccess.com/full/2224555.jpg",
     title: "Meme Generator",
     description: "MEME GENERATOR PROJECT DESCRIPTION",
     projectLink: "/memegenerator"
+}
+
+const travelJournalProject: HomeCard = {
+    id: faker.datatype.uuid(),
+    image: "https://i.ytimg.com/vi/-QckkcD_9W8/maxresdefault.jpg",
+    title: "Travel Journal",
+    description: "uses a custom card component",
+    projectLink: "/traveljournal"
 }
 
 
@@ -80,10 +79,18 @@ const quizzicalProject: HomeCard = {
     projectLink: "/quizzical/home"
 }
 
+const taskifyProject: HomeCard = {
+    id: faker.datatype.uuid(),
+    image: "https://images.ctfassets.net/rz1oowkt5gyp/1IgVe0tV9yDjWtp68dAZJq/36ca564d33306d407dabe39c33322dd9/TaskManagement-hero.png",
+    title: "Taskify",
+    description: "TASKIFY PROJECT CREATE IT",
+    projectLink: "/taskify"
+}
+
 
 const cards: HomeCard[] = [ 
-        reactFactsProject, digitalBusinessCardProject, jokesProject, airbnbProject, travelJournalProject,
-        memeGeneratorProject, notesAppProject, tenziesProject, quizzicalProject
+        reactFactsProject, digitalBusinessCardProject, jokesProject, airbnbProject, memeGeneratorProject, 
+        travelJournalProject, notesAppProject, tenziesProject, quizzicalProject, taskifyProject
     ];
 
 export { cards }

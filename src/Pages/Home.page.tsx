@@ -19,11 +19,7 @@ const HomePage = () => {
                     <a href="https://paletton.com/#uid=63h0R0kcjOx4d+c8NW2e+Dcgytl" target="_blank" rel="noreferrer">Link</a>
                 </div>
 
-                <div>
-                    <b>
-                        Fix DIgital Card (fix the page... still not saving card image.)
-                    </b>
-                </div>
+
                 <div className={styles["project-cards"]}>
                     {cards.map(card => <Card key={card.id} card={card} />)}
                 </div>

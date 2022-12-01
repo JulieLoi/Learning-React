@@ -8,11 +8,6 @@ interface IFormProps {
     dispatch: React.Dispatch<{type: QuizzicalEnum; payload?: any;}>
 }
 
-/**
- * Form Component to build quiz
- * @param {Object} props 
- * @returns Form component and builds API
- */
 const Form: React.FunctionComponent<IFormProps> = ({ state, dispatch }) => {
   return (
     <div className={styles["form"]}>

@@ -17,16 +17,13 @@ const Navbar: React.FC<Props> = ({ darkMode, setDarkMode })  => {
                 ReactFacts
             </h3>
 
-
-
-
-            
-
-
             <div className={`${styles["toggler"]} ${darkMode ? styles["toggler__dark"] : styles["toggler__light"]}`}>
                 <p className={`${styles["toggler__text"]} ${darkMode ? "" : styles["toggler__text-underline"]}`}>Light</p>
                 <label className={styles["switch"]}>
-                    <input type="checkbox" onClick={() => setDarkMode(prev => !prev)} />
+                    <input type="checkbox" 
+                        checked={darkMode}
+                        onChange={() => setDarkMode(prev => !prev)} 
+                    />
                     <span className={`${styles["slider"]} ${styles["round"]}`}></span>
                 </label>
                 <p className={`${styles["toggler__text"]} ${darkMode ? styles["toggler__text-underline"] : ""}`}>Dark</p>

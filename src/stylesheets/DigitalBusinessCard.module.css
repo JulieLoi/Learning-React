@@ -38,8 +38,13 @@
     padding-bottom: 0.5rem;
 }
 
+.form-buttons {
+    display: flex;
+}
+
 .form-save {
     padding: 0.25rem;
+    margin: 0rem 0.25rem;
     background-color: #E4E0FD;
     border: 0.1rem solid #6359A2;
     border-radius: 1rem;
@@ -126,7 +131,7 @@
     background: #272727e6;
     border: 0.25rem #A087FE solid;
     border-radius: 1.5rem;
-    padding: 2rem 4rem;
+    padding: 2rem 3rem;
     margin: 2rem;
 }
 
@@ -142,7 +147,7 @@
     object-fit: cover;
     border: 0.1rem solid rgba(255, 255, 255, 0.5);
     border-radius: 100%;
-    box-shadow: 0rem -1rem 2rem rgba(188, 188, 187, 0.5);}
+}
 
 .info__name {
     font-weight: 700;
@@ -178,17 +183,18 @@
 
 .btn-box {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .btn-box__button {
     display: flex;
-    align-items:center;
+    justify-content: center;
+    align-items: center;
     padding: 0.25rem 0.5rem;
     margin: 0.25rem 0.1rem;
 
     border: 0.1rem black solid;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     outline: none;
     overflow: hidden;
     
@@ -223,14 +229,14 @@
 .description h2 {
     font-size: 1.25rem;
     text-decoration: underline;
-    margin: 0px;
-    padding: 0px;
-  }
+    margin: 0.25rem 0rem;
+    padding: 0rem;
+}
   
 .description p {
     font-size: 0.75rem;
-    margin: 0px;
-    padding: 0px;
+    margin: 0rem;
+    padding: 0rem;
     white-space: pre-wrap;
     word-wrap: break-word;
 }
@@ -242,7 +248,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 0.5rem;
+    margin-top: 0.75rem;
 }
   
 .footer__icon {

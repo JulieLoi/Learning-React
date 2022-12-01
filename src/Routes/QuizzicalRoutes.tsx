@@ -44,6 +44,7 @@ const QuizzicalRoutes = () => {
         fetch(state.api).then(res => res.json()).then(database => 
             quizDispatch({ type: QuizEnum.SetUp, database: database.results })
         );
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }
     
 

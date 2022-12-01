@@ -133,4 +133,15 @@ export type QuizzicalQuiz = {
     numCorrect: number,                     // Number of correct answers
 }
 
+/* Taskify Page */
+export type Todo = {
+    id: string;
+    todo: string;
+    isDone: boolean;
+    isEdit: boolean;
+}
 
+export type TodoLists = {
+    active: Todo[];
+    complete: Todo[];
+}

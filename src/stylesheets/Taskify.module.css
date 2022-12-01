@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+
+@value values: "./colors.css";
+@value active-bg, active-bg-drag, active-txt-shadow from values;
+@value completed-bg, completed-bg-drag, completed-txt-shadow from values;
+
+/* Taskify Page */
+.taskify-page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2f74c0;
+    font-family: "Neucha", sans-serif;
+}
+  
+.heading {
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0.25rem 0rem rgba(255, 255, 255, 0.5), 0.75rem 0rem rgba(0, 0, 0, 0.5);
+    letter-spacing: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+
+    margin: 1rem 0;
+    z-index: 1;
+}
+
+
+
+/* Task Input Field */
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    position: relative;
+}
+
+.form__input-box {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-family: "Neucha", cursive;
+    font-size: 1.5rem;
+    
+    transition: 0.2s;
+    border: none;
+    border-radius: 4rem;
+    box-shadow: inset 0 0 1rem rgba(0, 0, 0, 0.25) ;
+}
+
+.form__input-box:focus {
+    box-shadow: 0 0 1rem 62.5rem rgba(0, 0, 0, 0.5), inset 0 0 3rem rgba(0, 0, 0, 0.25) ;
+    outline: none;
+}
+
+.form__submit {
+    position: absolute;
+    width: 5rem;
+    height: 2.5rem;
+    margin: 1rem;
+    right: 0;
+    
+    font-family: "Neucha", cursive;
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: white;
+    
+    background-color: #2F74C0;
+    border: none;
+    border-radius: 4rem;
+    box-shadow: 0 0 0.5rem black;
+    transition: 0.2s all;
+}
+
+.form__submit:hover {
+    background-color: #388AE2;
+    transform: scale(1.25)
+}
+
+.form__submit:active {
+    transform: scale(0.8);
+    box-shadow: 0 0 0.5rem black;
+}
+
+@media (max-width: 75rem) {
+    .form {
+        width: 90%;
+    }
+}
+
+/* Todo List Container*/
+.container {
+    width: 95%;
+    display: flex;
+    margin: 1rem 0rem 3rem 0rem;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.task-container {
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 49.5%;
+    padding: 1rem;
+}
+
+/* Todo List Containers*/
+.active {
+    background-color: active-bg;
+}
+
+.completed {
+    background-color: completed-bg;
+}
+
+.list-heading {
+    font-size: 2.25rem;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 0.4rem;
+    text-decoration: underline;
+    text-shadow: 0.2rem 0.2rem rgba(255, 255, 255, 0.25), 
+        0.1rem 0.1rem rgba(0, 0, 0, 0.25);
+}
+
+ /* Drag Styling*/
+.drag__list-item {
+    box-shadow: 0 0 5rem rgba(0, 0, 0, 0.75);
+}
+
+.drag__active {
+    background-color: active-bg-drag;
+    box-shadow: 0 0 5rem active-bg;
+}
+  
+.drag__completed {
+    background-color: completed-bg-drag;
+    box-shadow: 0 0 5rem completed-bg;
+}
+
+.drag__active-lh {
+    font-size: 2.5rem;
+
+    text-shadow: 0.2rem 0.2rem active-txt-shadow;
+    text-decoration: none;
+}
+
+.drag__completed-lh {
+    font-size: 2.5rem; 
+    text-shadow: 0.2rem 0.2rem completed-txt-shadow;
+    text-decoration: none;
+}
+
+
+/* Todo List Elements */
+.list {
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+    flex-wrap: wrap;
+}
+
+.list__item {
+    border-radius: 1rem;
+    padding: 1rem 1.5rem 0.5rem 1.5rem;
+    margin: 1rem 0.5rem 0rem 0.5rem;
+    background-image: url("https://img.freepik.com/free-photo/crumpled-yellow-paper-background-close-up_60487-2390.jpg?size=626&ext=jpg");
+    transition: 0.2s;
+}
+
+.list__item:hover {
+    box-shadow: 0 0 5px black;
+    transform: scale(1.05);
+}
+
+.list__item-no-hover {
+    border-radius: 1rem;
+    padding: 1rem 1.5rem 0.5rem 1.5rem;
+    margin: 1rem 0.5rem 0rem 0.5rem;
+    background-image: url("https://img.freepik.com/free-photo/crumpled-yellow-paper-background-close-up_60487-2390.jpg?size=626&ext=jpg");
+    transition: 0.2s;
+}
+
+.list__item-text {
+    flex: 1;
+    border: none;
+    font-size: 1.5rem;
+
+    display: block;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.list__item-text:focus {
+    outline: none;
+}
+
+.list__item-edit {
+    font-family: "Neucha", cursive;
+    background: transparent;
+    padding: 0;
+}
+
+.icon-list {
+    margin: auto;
+    text-align: right;
+}
+
+.icon {
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+  
+@media (max-width: 700px) {
+    .container {
+      width: 95%;
+      flex-direction: column;
+    }
+    .task-container {
+      width: 95%;
+      margin-bottom: 10px;
+    }
+  }

@@ -92,27 +92,3 @@ const BooleanQuestion: React.FC<IBooleanQuestionProps> = ({ question, quizState,
 };
 
 export default BooleanQuestion;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

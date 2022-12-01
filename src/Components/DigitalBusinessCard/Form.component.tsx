@@ -23,12 +23,21 @@ const Form: React.FC<Props> = ({ state, dispatch, downloadFunction }) => {
         <div className={styles["form-container"]} >
             <div className={styles["form-top"]}>
                 <span className={styles["form-title"]}>Digital Business Card Form</span>
-                <div className={styles["form-save"]}>
-                    <span>Save Card - </span>
-                    <img src="/images/DigitalBusinessCard/business-card.png" alt="business card icon" 
-                        className={styles["form-image"]}
-                        onClick={downloadFunction}
-                    />
+                <div className={styles["form-buttons"]}>
+                    <div className={styles["form-save"]}>
+                        <span>Reset Form </span>
+                        <img src="/images/DigitalBusinessCard/restore.png" alt="reset form"
+                            className={styles["form-image"]}
+                            onClick={() => dispatch({type: CardFormEnum.ResetCard, payload: ""})}
+                        />
+                    </div>
+                    <div className={styles["form-save"]}>
+                        <span>Save Card </span>
+                        <img src="/images/DigitalBusinessCard/business-card.png" alt="business card icon" 
+                            className={styles["form-image"]}
+                            onClick={downloadFunction}
+                        />
+                    </div>
                 </div>
             </div>
     

@@ -15,6 +15,7 @@ export enum CardFormEnum {
     FacebookLink = "UPDATE_FACEBOOK_LINK",
     InstagramLink = "UPDATE_INSTAGRAM_LINK",
     GithubLink = "UPDATE_GITHUB_LINK",
+    ResetCard = "RESET_CARD"
 }
 
 /**
@@ -76,4 +77,15 @@ export enum QuizEnum {
     SetAnswer = "SELECTED_ANSWER",
     SubmitQuiz = "SUBMIT_QUIZ",
     NewQuiz = "NEW_QUIZ",
+}
+
+/**
+ * Enum for Taskify Todo Lists
+ */
+export enum TaskifyEnum {
+    AddToDoItem = "ADD_TODO_ITEM",
+    SetEdit = "SET_TODO_ITEM_EDIT",
+    SetDone = "SET_TODO_DONE",
+    DeleteTodo = "DELETE_TODO_ITEM",
+    DragTodo = "DRAG_TODO_ITEM",
 }

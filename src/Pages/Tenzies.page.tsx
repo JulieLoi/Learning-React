@@ -59,29 +59,3 @@ const TenziesPage = () => {
 };
 
 export default TenziesPage;
-
-/*
-
-
-function App() {
-
-  
-  return (
-    <main>
-      {tenzies && <Confetti />}
-      <h1>Tenzies</h1>
-      <p>Roll until all dice are the same.</p> 
-      <p>Click each die to freeze it at its current value between rolls.</p>
-      <div className="die-container">
-        {diceElements}
-      </div>
-      <button className="roll-button" onClick={tenzies ? newGame : handleRoll}>
-        {tenzies ? "New Game" : "Roll"}
-      </button> 
-    </main>
-  );
-}
-
-export default App;
-
-*/

@@ -1,7 +1,8 @@
 import { faker } from "@faker-js/faker";
 import { decode } from "html-entities";
-import { BusinessCard, Joke, Note, NotesApp, Tenzies, Quizzical, QuizzicalQuiz, QuizQuestion } from './Types';
-import { CardFormEnum, JokeEnum, NotesEnum, TenziesEnum, QuizzicalEnum, QuizEnum } from "./Enums";
+import { DropResult } from "react-beautiful-dnd";
+import { BusinessCard, Joke, Note, NotesApp, Tenzies, Quizzical, QuizzicalQuiz, QuizQuestion, Todo, TodoLists } from './Types';
+import { CardFormEnum, JokeEnum, NotesEnum, TenziesEnum, QuizzicalEnum, QuizEnum, TaskifyEnum } from "./Enums";
 var _ = require("underscore");
 
 // Digital Business Card Project
@@ -19,6 +20,21 @@ export const cardFormReducer = (state: BusinessCard, action: { type: CardFormEnu
         case CardFormEnum.FacebookLink:    return {...state, facebookLink: action.payload}
         case CardFormEnum.InstagramLink:   return {...state, instagramLink: action.payload}
         case CardFormEnum.GithubLink:      return {...state, githubLink: action.payload}
+        case CardFormEnum.ResetCard:       
+            return {
+                image: "",
+                name: "",
+                jobPosition: "",
+                personalLink: "",
+                emailLink: "https://gmail.google.com/inbox/",
+                linkedInLink: "https://www.linkedin.com/",
+                aboutText: "",
+                interestsText: "",
+                twitterLink: "https://twitter.com",
+                facebookLink: "http://facebook.com",
+                instagramLink: "https://instagram.com",
+                githubLink: "https://github.com",
+            }
         default:    return state;
     }
 }
@@ -243,6 +259,127 @@ export const quizReducer = (state: QuizzicalQuiz,
         // Set Failed Submit
         case QuizEnum.NewQuiz:
             return { questions: [], submittedQuiz: false, failedSubmit: false, numCorrect: 0 }
+        default: return state;
+    }
+}
+
+export const taskifyReducer = (state: TodoLists, 
+    action: { type: TaskifyEnum, todoItem?: Todo, newTodoText?: string, dragResult?: DropResult } ) => {
+    
+    // Some Todo Item Values
+    const todoID: string | undefined = action.todoItem?.id;
+    const todoDone: boolean | undefined = action.todoItem?.isDone;
+    const todoEdit: boolean | undefined = action.todoItem?.isEdit;
+
+    // New State
+    let newTodoLists: TodoLists = {
+        active: [],
+        complete: [],
+    }
+
+    switch (action.type) {
+        // Adds created ToDo Item to active list
+        case TaskifyEnum.AddToDoItem:
+            return {...state, active: [...state.active, action.todoItem!] };
+
+        // Sets "isEdit" property of a Todo Item
+        case TaskifyEnum.SetEdit:
+            let newActiveEdit: Todo[] = [];
+
+            // Active Todo Item -- Turn on Edit Mode
+            if (!todoDone && !todoEdit) {
+                newActiveEdit = state.active.map(todo => todo.id === todoID ? { ...todo, isEdit: true } : todo );
+            }
+            // Complete Todo Item
+            else if (action.todoItem!.isDone) {
+                alert("You cannot edit a completed task item!");
+                return state;
+            }
+            // Active Todo Item -- Turn off Edit Mode, Update Todo Text
+            else {
+                newActiveEdit = state.active.map(todo => todo.id === todoID ? 
+                        { ...todo, todo: action.newTodoText!, isEdit: false } 
+                        :
+                        todo 
+                    );
+            }
+
+            return {...state, active: newActiveEdit};
+
+        // Change Todo Item "isDone" property
+        case TaskifyEnum.SetDone:
+            let transferredTodo: Todo = {...action.todoItem!, isDone: !todoDone};
+            
+
+            // Completed Todo --> Active
+            if (todoDone) {
+                newTodoLists.complete = state.complete.filter(todo => todo.id !== todoID);
+                newTodoLists.active = state.active;
+                newTodoLists.active.push(transferredTodo);
+            }
+
+            // Active Todo --> Complete
+            else {
+                newTodoLists.active = state.active.filter(todo => todo.id !== todoID);
+                newTodoLists.complete = state.complete;
+                newTodoLists.complete.push(transferredTodo);
+            }
+
+            return newTodoLists;
+
+        // Delete Todo item
+        case TaskifyEnum.DeleteTodo:
+            if (todoDone) { return {...state, complete: state.complete.filter(todo => todo.id !== todoID) } }
+            else { return {...state, active: state.active.filter(todo => todo.id !== todoID) } }
+
+
+        // Drag Todo Items
+        case TaskifyEnum.DragTodo:
+            const { source, destination } = action.dragResult!;
+
+            // No Destination
+            if (!destination) { return state; }
+
+            // Drag Same List
+            if (source.droppableId === destination!.droppableId) {
+                if (source.droppableId === 'active-list') {
+                    let todoSource: Todo = state.active[source.index];
+                    let newList: Todo[] = state.active.filter(todo => todo.id !== todoSource.id);
+                    newList.splice(destination.index, 0, todoSource);
+                    return {...state, active: newList }
+                }
+                else {
+                    let todoSource: Todo = state.complete[source.index];
+                    let newList: Todo[] = state.complete.filter(todo => todo.id !== todoSource.id);
+                    newList.splice(destination.index, 0, todoSource);
+                    return {...state, complete: newList }
+                }
+            }
+
+            // Drag Transfer Lists
+            else {
+                // Active --> Complete
+                if (source.droppableId === 'active-list') {
+                    let todoSource: Todo = state.active[source.index];
+                    todoSource.isDone = !todoSource.isDone;
+                    newTodoLists.active = state.active.filter(todo => todo.id !== todoSource.id);
+                    newTodoLists.complete = state.complete;
+                    newTodoLists.complete.splice(destination.index, 0, todoSource);
+                    
+                }
+
+                // Complete --> Active
+                else {
+                    let todoSource: Todo = state.complete[source.index];
+                    todoSource.isDone = !todoSource.isDone;
+                    newTodoLists.complete = state.complete.filter(todo => todo.id !== todoSource.id);
+                    newTodoLists.active = state.active;
+                    newTodoLists.active.splice(destination.index, 0, todoSource);
+                }
+                return newTodoLists;
+
+            }
+
         default: return state;
     }
 }
