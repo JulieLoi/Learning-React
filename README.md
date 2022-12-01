@@ -30,6 +30,12 @@ For this entire React Project:
 --types (typescript use custom types), useReducers (enums)
 
 
+npx create-react-app . --template typescript
+
+
+
+
+
 USED THIS FOR BACKGROUND PATTERNS
 https://www.magicpattern.design/tools/css-backgrounds
 
@@ -412,6 +418,28 @@ CSS Modules LEANRIOGNS
 
 Favicon:
 <a href="https://www.flaticon.com/free-icons/to-do" title="to do icons">To do icons created by Freepik - Flaticon</a>
+
+
+
+# Testing
+https://reactjs.org/docs/testing.html
+JEST https://jestjs.io/
+React Testing Library https://testing-library.com/docs/react-testing-library/intro/s
+
+Both installled by default in npx create-react-app
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
