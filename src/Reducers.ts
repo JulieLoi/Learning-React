@@ -6,35 +6,42 @@ import { CardFormEnum, JokeEnum, NotesEnum, TenziesEnum, QuizzicalEnum, QuizEnum
 var _ = require("underscore");
 
 // Digital Business Card Project
-export const cardFormReducer = (state: BusinessCard, action: { type: CardFormEnum; payload: string; }) => {
+export const cardFormReducer = (state: BusinessCard, action: { type: CardFormEnum; payload?: string; formData?: BusinessCard }) => {
     switch (action.type) {
-        case CardFormEnum.Image:           return {...state, image: action.payload}
-        case CardFormEnum.Name:            return {...state, name: action.payload}
-        case CardFormEnum.JobPosition:     return {...state, jobPosition: action.payload}
-        case CardFormEnum.PersonalLink:    return {...state, personalLink: action.payload}
-        case CardFormEnum.EmailLink:       return {...state, emailLink: action.payload}
-        case CardFormEnum.LinkedInLink:    return {...state, linkedInLink: action.payload}
-        case CardFormEnum.AboutText:       return {...state, aboutText: action.payload}
-        case CardFormEnum.InterestsText:   return {...state, interestsText: action.payload}
-        case CardFormEnum.TwitterLink:     return {...state, twitterLink: action.payload}
-        case CardFormEnum.FacebookLink:    return {...state, facebookLink: action.payload}
-        case CardFormEnum.InstagramLink:   return {...state, instagramLink: action.payload}
-        case CardFormEnum.GithubLink:      return {...state, githubLink: action.payload}
+        case CardFormEnum.Image:           return {...state, info: {...state.info, image: action.payload!}}
+        case CardFormEnum.Name:            return {...state, info: {...state.info, name: action.payload!}}
+        case CardFormEnum.JobPosition:     return {...state, info: {...state.info, jobPosition: action.payload!}}
+        case CardFormEnum.PersonalLink:    return {...state, info: {...state.info, personalLink: action.payload!}}
+        case CardFormEnum.EmailLink:       return {...state, info: {...state.info, emailLink: action.payload!}}
+        case CardFormEnum.LinkedInLink:    return {...state, info: {...state.info, linkedInLink: action.payload!}}
+        case CardFormEnum.AboutText:       return {...state, desc: {...state.desc, aboutText: action.payload!}}
+        case CardFormEnum.InterestsText:   return {...state, desc: {...state.desc, interestsText: action.payload!}}
+        case CardFormEnum.TwitterLink:     return {...state, footer: {...state.footer, twitterLink: action.payload!}}
+        case CardFormEnum.FacebookLink:    return {...state, footer: {...state.footer, facebookLink: action.payload!}}
+        case CardFormEnum.InstagramLink:   return {...state, footer: {...state.footer, instagramLink: action.payload!}}
+        case CardFormEnum.GithubLink:      return {...state, footer: {...state.footer, githubLink: action.payload!}}
         case CardFormEnum.ResetCard:       
             return {
-                image: "",
-                name: "",
-                jobPosition: "",
-                personalLink: "",
-                emailLink: "https://gmail.google.com/inbox/",
-                linkedInLink: "https://www.linkedin.com/",
-                aboutText: "",
-                interestsText: "",
-                twitterLink: "https://twitter.com",
-                facebookLink: "http://facebook.com",
-                instagramLink: "https://instagram.com",
-                githubLink: "https://github.com",
+                info: {
+                    image: "",
+                    name: "",
+                    jobPosition: "",
+                    personalLink: "",
+                    emailLink: "https://gmail.google.com/inbox/",
+                    linkedInLink: "https://www.linkedin.com/",
+                },
+                desc: {
+                    aboutText: "",
+                    interestsText: "",
+                },
+                footer: {
+                    twitterLink: "https://twitter.com",
+                    facebookLink: "http://facebook.com",
+                    instagramLink: "https://instagram.com",
+                    githubLink: "https://github.com",
+                },
             }
+        case CardFormEnum.FillCard: return action.formData!;
         default:    return state;
     }
 }

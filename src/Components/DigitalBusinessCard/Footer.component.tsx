@@ -1,33 +1,33 @@
 import React from 'react';
 import styles from '../../stylesheets/DigitalBusinessCard.module.css';
-import { BusinessCard } from '../../Types';
+import { FooterSection } from '../../Types';
 
 interface Props {
-    state: BusinessCard;
+    footer: FooterSection;
 }
 
-const Footer: React.FC<Props> = ({ state }) => {
+const Footer: React.FC<Props> = ({ footer }) => {
     return (
         <footer className={styles["footer"]}>
-            <a href={state.twitterLink === "" ? "https://twitter.com" : state.twitterLink} 
+            <a href={footer.twitterLink === "" ? "https://twitter.com" : footer.twitterLink} 
                 target="_blank" rel="noopener noreferrer"
             >
                 <img src="./images/DigitalBusinessCard/twitter.png" alt="Twitter Icon" 
                     className={styles["footer__icon"]} />
             </a>
-            <a href={state.facebookLink === "" ? "http://facebook.com" : state.facebookLink} 
+            <a href={footer.facebookLink === "" ? "http://facebook.com" : footer.facebookLink} 
                 target="_blank" rel="noopener noreferrer"
             >
                 <img src="./images/DigitalBusinessCard/facebook.png" alt="Facebook Icon" 
                     className={styles["footer__icon"]} />
             </a>
-            <a href={state.instagramLink === "" ? "https://instagram.com" : state.instagramLink} 
+            <a href={footer.instagramLink === "" ? "https://instagram.com" : footer.instagramLink} 
                 target="_blank" rel="noopener noreferrer"
             >
                 <img src="./images/DigitalBusinessCard/instagram.png" alt="Instagram Icon" 
                     className={styles["footer__icon"]} />
             </a>
-            <a href={state.githubLink === "" ? "https://github.com" : state.githubLink} 
+            <a href={footer.githubLink === "" ? "https://github.com" : footer.githubLink} 
                 target="_blank" rel="noopener noreferrer"
                 >
                 <img src="./images/DigitalBusinessCard/github.png" alt="Github Icon" 

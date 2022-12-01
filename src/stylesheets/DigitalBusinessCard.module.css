@@ -31,6 +31,10 @@
     align-items: center;
 }
 
+.form-top-container {
+    display: flex;
+    flex-direction: column;
+}
 .form-title {
     font-weight: 700;
     letter-spacing: 0.125rem;
@@ -38,11 +42,7 @@
     padding-bottom: 0.5rem;
 }
 
-.form-buttons {
-    display: flex;
-}
-
-.form-save {
+.form-button {
     padding: 0.25rem;
     margin: 0rem 0.25rem;
     background-color: #E4E0FD;
@@ -62,7 +62,7 @@
 }
 
 .form-scroll {
-    height: 90%;
+    height: 80%;
     overflow-y: scroll;
 
 }
@@ -109,6 +109,22 @@
     border: 0.05rem lightseagreen solid;
     border-radius: 1rem;
     background: #e2fdfc;
+}
+
+.submit-button {
+    width: 100%;
+    margin: 0.5rem 0rem;
+
+    font-size: 1.15rem;
+    font-weight: 700;
+
+    background: #e0d9ff;
+    border:0.1rem solid rgb(193, 177, 254);
+    border-radius: 1rem;
+}
+
+.submit-button:hover:enabled {
+    background: #d2c7ff;
 }
 
 
@@ -256,3 +272,62 @@
     border: 0.25rem white solid;
     border-radius: 1.5rem;
 }
+
+/* Form Checkbox */
+.check__container {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.check__container span {
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+    text-decoration: underline;
+}
+  
+ /* Hide the browser's default checkbox */
+.check__box {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+  
+/* Create a custom checkbox */
+.check__checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: #eee;
+    border: 0.1rem solid black;
+}
+  
+  /* On mouse-over, add a grey background color */
+.check__container:hover span {
+    color: rgb(115, 96, 184);
+}
+
+.check__container:hover input ~ .check__checkmark {
+    background-color: #ccc;
+}
+  
+/* When the checkbox is checked, add a blue background */
+.check__container input:checked ~ .check__checkmark {
+    background-color: rgba(160, 135, 254, 0.75);
+}
+
+/* Show the checkmark when checked */
+.check__container input:checked ~ .check__checkmark:after {
+    display: block;
+}
+  

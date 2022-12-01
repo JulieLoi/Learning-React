@@ -7,22 +7,35 @@ export type HomeCard = {
     projectLink: string,
 }
 
-/* Airbnb Experience Page */
-export type BusinessCard = {
+/* Digital Business Card Page */
+export type InfoSection = {
     image: string,
     name: string,
     jobPosition: string,
     personalLink: string,
     emailLink: string,
     linkedInLink: string,
+}
+
+export type DescSection = {
     aboutText: string,
     interestsText: string,
+}
+
+export type FooterSection = {
     twitterLink: string,
     facebookLink: string,
     instagramLink: string,
     githubLink: string,
 }
 
+export type BusinessCard = {
+    info: InfoSection,
+    desc: DescSection,
+    footer: FooterSection,
+}
+
+/* Airbnb Experience Page */
 export type ExperienceCard = {
     id: string,
     name: string,

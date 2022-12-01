@@ -1,28 +1,28 @@
 import React from 'react';
 import { SlEnvolope, SlSocialLinkedin } from 'react-icons/sl';
 import styles from '../../stylesheets/DigitalBusinessCard.module.css';
-import { BusinessCard } from '../../Types';
+import { InfoSection } from '../../Types';
 
 interface Props {
-    state: BusinessCard;
+    info: InfoSection;
 }
 
-const Information: React.FC<Props> = ({ state }) => {
+const Information: React.FC<Props> = ({ info }) => {
 
     return (
         <section className={styles["info"]}>
-            <img src={state.image === "" ? "/images/DigitalBusinessCard/default_person.png" : state.image} 
+            <img src={info.image === "" ? "/images/DigitalBusinessCard/default_person.png" : info.image} 
                 alt="Professional Portrait" className={styles["info__image"]} />
             <h1 className={styles["info__name"]}>
-                {state.name === "" ? "Name" : state.name}
+                {info.name === "" ? "Name" : info.name}
             </h1>
             <h3 className={styles["info__position"]}>
-                {state.jobPosition === "" ? "Job Position" : state.jobPosition}
+                {info.jobPosition === "" ? "Job Position" : info.jobPosition}
             </h3>
             <h4 className={styles["info__personal-link"]}>
-                <a href={state.personalLink} target="_blank" rel="noreferrer"
+                <a href={info.personalLink} target="_blank" rel="noreferrer"
                     className={`${styles["info__personal-enabled"]} 
-                        ${styles[(state.personalLink === "" ? "info__personal-disabled" : "")]}`
+                        ${styles[(info.personalLink === "" ? "info__personal-disabled" : "")]}`
                     }
                 >
                     Personal Website
@@ -30,14 +30,14 @@ const Information: React.FC<Props> = ({ state }) => {
             </h4>
             <div className={styles["btn-box"]}>
                 <button type="button" className={styles["btn-box__button"]}
-                    onClick={() => window.open(state.emailLink) }
+                    onClick={() => window.open(info.emailLink) }
                 >
                     <span>
                         <SlEnvolope className={styles["btn-box__img"]} /> Email
                     </span>
                 </button>
                 <button type="button" className={styles["btn-box__button"]}
-                    onClick={() => window.open(state.linkedInLink)}
+                    onClick={() => window.open(info.linkedInLink)}
                 >
                     <span>
                         <SlSocialLinkedin className={styles["btn-box__img"]} /> LinkedIn

@@ -3,7 +3,9 @@ import Split from 'react-split';
 import { toPng } from 'html-to-image';
 
 import Form from "../components/DigitalBusinessCard/Form.component";
-import Card from '../components/DigitalBusinessCard/Card.component';
+import Information from '../components/DigitalBusinessCard/Information.component';
+import Description from '../components/DigitalBusinessCard/Description.component';
+import Footer from '../components/DigitalBusinessCard/Footer.component';
 
 import '../stylesheets/split.css';
 import styles from '../stylesheets/DigitalBusinessCard.module.css';
@@ -15,18 +17,24 @@ const DigitalBusinessCardPage: React.FC = () => {
 
     // Initial Form Data and reducer
     const initialState: BusinessCard = {
-        image: "",
-        name: "",
-        jobPosition: "",
-        personalLink: "",
-        emailLink: "https://gmail.google.com/inbox/",
-        linkedInLink: "https://www.linkedin.com/",
-        aboutText: "",
-        interestsText: "",
-        twitterLink: "https://twitter.com",
-        facebookLink: "http://facebook.com",
-        instagramLink: "https://instagram.com",
-        githubLink: "https://github.com",
+        info: {
+            image: "",
+            name: "",
+            jobPosition: "",
+            personalLink: "",
+            emailLink: "https://gmail.google.com/inbox/",
+            linkedInLink: "https://www.linkedin.com/",
+        },
+        desc: {
+            aboutText: "",
+            interestsText: "",
+        },
+        footer: {
+            twitterLink: "https://twitter.com",
+            facebookLink: "http://facebook.com",
+            instagramLink: "https://instagram.com",
+            githubLink: "https://github.com",
+        },
     }
     const [cardState, cardDispatch] = useReducer(cardFormReducer, initialState);
 
@@ -51,7 +59,6 @@ const DigitalBusinessCardPage: React.FC = () => {
         <Split className="split" minSize={450} sizes={[75, 30]}>
             <div className={styles["form-section"]}>
                 <Form 
-                    state={cardState}
                     dispatch={cardDispatch}
                     downloadFunction={saveImage}
                 />
@@ -59,9 +66,11 @@ const DigitalBusinessCardPage: React.FC = () => {
             <div className={`${styles["card-section"]}`}
             >
                 <div ref={ref}>
-                    <Card 
-                        state={cardState}
-                    />
+                    <div className={styles["card"]}>
+                        <Information info={cardState.info} />
+                        <Description desc={cardState.desc} />
+                        <Footer footer={cardState.footer} />    
+                    </div>               
                 </div>
 
             </div>

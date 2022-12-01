@@ -1,21 +1,21 @@
 import React from 'react';
 import styles from '../../stylesheets/DigitalBusinessCard.module.css';
-import { BusinessCard } from '../../Types';
+import { DescSection } from '../../Types';
 
 interface Props {
-    state: BusinessCard;
+    desc: DescSection;
 }
 
-const About: React.FC<Props> = ({ state }) => {
+const About: React.FC<Props> = ({ desc }) => {
     return (
         <>
             <section className={styles["description"]}>
                 <h2>About</h2>
-                <p>{state.aboutText === "" ? "About..." : state.aboutText}</p>
+                <p>{desc.aboutText === "" ? "About..." : desc.aboutText}</p>
             </section>
             <section className={styles["description"]}>
                 <h2>Interests</h2>
-                <p>{state.interestsText === "" ? "Interests..." : state.interestsText}</p>
+                <p>{desc.interestsText === "" ? "Interests..." : desc.interestsText}</p>
             </section>
         </>
 

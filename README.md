@@ -429,9 +429,14 @@ React Testing Library https://testing-library.com/docs/react-testing-library/int
 Both installled by default in npx create-react-app
 
 
+npm test 
+-Jest Watch Mode
 
+npm run coverage
+-code coverage
 
-
+SERIES FOR LEARNING
+https://www.youtube.com/watch?v=W-dc5fpxUVs&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=14
 
 
 

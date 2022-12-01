@@ -15,7 +15,8 @@ export enum CardFormEnum {
     FacebookLink = "UPDATE_FACEBOOK_LINK",
     InstagramLink = "UPDATE_INSTAGRAM_LINK",
     GithubLink = "UPDATE_GITHUB_LINK",
-    ResetCard = "RESET_CARD"
+    ResetCard = "RESET_CARD",
+    FillCard = "FILL_CARD",
 }
 
 /**
