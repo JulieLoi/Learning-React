@@ -3,7 +3,7 @@ This React project was created using the `create-react-app` command with `TypeSc
 
 The base of these projects was to learn React by following the [Scrimba Tutorial](https://scrimba.com/learn/learnreact). After learning how React works, I proceeded to follow a [Youtube tutorial](https://www.youtube.com/watch?v=FJDVKeh7RJI) in order to learn TypeScript and CSS modules with React.
 
-This repository contains revamped versions of all the projects I did under a single React application where each separate project has its own page (instead of each project being its own React application).
+This repository contains updated versions of all the projects I did under a single React application where each separate project has its own page (instead of each project being its own React application).
 
 For each project, I have rewritten it in Typescript and CSS modules for styling while improving the project from the base tutorial I followed. I have also mainly replaced some states with reducers (useReducer hook) while using custom types and enums to make my code stricter.
 
@@ -44,7 +44,7 @@ Compared to the original, the new "React Facts" page has an updated design and t
 <table>
 <tr>
     <th>My Original React Facts</th>
-    <th>Revamped React Facts</th>
+    <th>Updated React Facts</th>
 </tr>
 <tr>
     <td>
@@ -93,7 +93,7 @@ The business card itself is similar to the original card with an updated CSS sty
 
 <table>
 <tr>
-    <th>Revamped Business Card Page</th>
+    <th>Updated Business Card Page</th>
 </tr>
 <tr>
     <td>
@@ -130,8 +130,8 @@ Here is an example of a digital business card for a giant panda where I've added
 The original "Jokes" project was simply practice to create a custom card component and practice conditional rendering for the "Airbnb Experiences" project.
 For my original "Jokes and Puns" page, I further practiced my HTML coding and CSS styling.
 
-## <ins>**Revamped Jokes and Puns Project**</ins>
-For the revamped "Jokes and Puns" project, I created an entire page using React Bootstrap ([react-bootstrap library](https://react-bootstrap.github.io/)). Using the pre-built components (that I further styled) made it simpler to code in a light/dark mode that is easily done through the React Bootstrap component's API.
+## <ins>**Updated Jokes and Puns Project**</ins>
+For the updated "Jokes and Puns" project, I created an entire page using React Bootstrap ([react-bootstrap library](https://react-bootstrap.github.io/)). Using the pre-built components (that I further styled) made it simpler to code in a light/dark mode that is easily done through the React Bootstrap component's API.
 * <a href="https://www.flaticon.com/free-icons/joke" title="joke icons">Jokes and Pun Navbar Icon</a>
 
 The only custom component in this project is the filter component that filters and sorts the jokes and puns (which I added more of). This is done by sorting or filtering out the original data array of jokes, which can also be cleared.
@@ -141,7 +141,7 @@ For the "Jokes and Puns" project, I used [fakerjs](https://fakerjs.dev/guide/) f
 <table>
 <tr>
     <th>My Original Jokes and Puns Page</th>
-    <th>Revamped Jokes and Puns Page</th>
+    <th>Updated Jokes and Puns Page</th>
 </tr>
 <tr>
     <td>
@@ -204,15 +204,15 @@ I built each card by mapping the array of card data and passing each individual 
 </tr>
 </table>
 
-## <ins>**Revamped Airbnb Experience Page**</ins>
-The revamped "Airbnb Experience Page" has the same top static portion but has a revamped and randomized card container. 
+## <ins>**Updated Airbnb Experience Page**</ins>
+The updated "Airbnb Experience Page" has the same top static portion but has a updated and randomized card container. 
 
 While I improved the appearance of the card component, the main improvement is using [fakerjs](https://fakerjs.dev/guide/) to create 20 cards with random data.
 
 <table>
 <tr>
     <th>My Original Airbnb Experiences Page</th>
-    <th>Revamped Airbnb Experiences Page</th>
+    <th>Updated Airbnb Experiences Page</th>
 </tr>
 <tr>
     <td>
@@ -246,7 +246,7 @@ The new version of the "Travel Journal" project was also built very quickly with
 <table>
 <tr>
     <th>My Original Travel Journal</th>
-    <th>Revamped Travel Journal</th>
+    <th>Updated Travel Journal</th>
 </tr>
 <tr>
     <td>
@@ -288,10 +288,10 @@ For this project, a working meme generator was created by fetching an image from
 </tr>
 </table>
 
-## <ins>**Revamped Meme Generator**</ins>
+## <ins>**Updated Meme Generator**</ins>
 When rebuilding the "Meme Generator" project with Typescript, while I did not change the basic layout, I add a few new functionalities to the project: 
 
-* First, I replaced the textbox inputs with the custom, autosizing textarea element ([react-textarea-autosize](https://www.npmjs.com/package/react-textarea-autosize)) that was previously used in the revamped "Digital Business Card" project. This was done in order to have text rows for the meme's top and bottom text. 
+* First, I replaced the textbox inputs with the custom, autosizing textarea element ([react-textarea-autosize](https://www.npmjs.com/package/react-textarea-autosize)) that was previously used in the updated "Digital Business Card" project. This was done in order to have text rows for the meme's top and bottom text. 
 
 * Secondly, I have also handled the text overflowing from the image with the use of the [use-fit-text library](https://www.npmjs.com/package/use-fit-text).
 
@@ -299,7 +299,7 @@ When rebuilding the "Meme Generator" project with Typescript, while I did not ch
 
 <table>
 <tr>
-    <th>Revamped Meme Generator</th>
+    <th>Updated Meme Generator</th>
     <th>Meme Example (Downloaded)</th>
 </tr>
 <tr>
@@ -327,7 +327,7 @@ I used the following libraries for my new markdown editor:
 Compared to the tutorial's "Notes App", I have improved the CSS styling as well as added a light/dark mode.
 The new light/dark mode toggle uses images for the slider circle in comparison to previous projects.
 
-## <ins>**Revamped Markdown Notes**</ins>
+## <ins>**Updated Markdown Notes**</ins>
 For the Typescript version, I have improved the "Markdown Notes" project's CSS styling and have handled overflow:
 * The Markdown Editor now handles overflow
 * The title of the note (default: title) is now separate from the text (it used to be the first line of text of the editor) and can be edited by using the edit icon or double-clicking the note title.
@@ -347,7 +347,7 @@ For the Typescript version, I have improved the "Markdown Notes" project's CSS s
 <table>
 <tr>
     <th>My Original Markdown Notes</th>
-    <th>Revamped Markdown Notes</th>
+    <th>Updated Markdown Notes</th>
 </tr>
 <tr>
     <td>
@@ -383,12 +383,12 @@ This project uses the [react-confetti library](https://www.npmjs.com/package/rea
 
 ## <ins>**My Tenzies Project**</ins>
 For my original "Tenzies" project, I followed the tutorial but changed up the design and some parts on how to implement the functionality in order to use the faces of a die instead of numbers.
-For my revamped "Tenzies" project, I updated the code functionality remained the same and I mostly updated the design.
+For my updated "Tenzies" project, I updated the code functionality remained the same and I mostly updated the design.
 
 <table>
 <tr>
     <th>My Original Tenzies Project</th>
-    <th>Revamped Tenzies Project</th>
+    <th>Updated Tenzies Project</th>
 </tr>
 <tr>
     <td>
@@ -493,13 +493,13 @@ A form will appear below to decide which types of questions you would like for t
 </table>
 
 
-## <ins>**Revamped Quizzical Trivia**</ins>
+## <ins>**Updated Quizzical Trivia**</ins>
 The new "Quizzical Trivia" project shares the same code functionality (written in Typescript and using the useReducer hook) as the original project with a sleeker interface.
 
 <table>
 <tr>
-    <th>Revamped Quizzical - Home and Quiz Page</th>
-    <th>Revamped Quizzical - Unanswered Quiz Page</th>
+    <th>Updated Quizzical - Home and Quiz Page</th>
+    <th>Updated Quizzical - Unanswered Quiz Page</th>
 </tr>
 <tr>
     <td>
@@ -523,7 +523,7 @@ Flat Icon Images:
 # Taskify Project (Youtube Tutorial)
 The Taskify Project is unrelated to the Scrimba tutorial as it was a [Youtube Tutorial](https://www.youtube.com/watch?v=FJDVKeh7RJI) that served as an introduction to TypeScript and CSS modules that I followed along before reworking all of my Scrimba projects into Typescript and CSS modules under one React App.
 
-## <ins>**Revamped Taskify Project**</ins>
+## <ins>**Updated Taskify Project**</ins>
 While I followed the base tutorial, I came back to the project to customize the UI design as well as utilizes the useReducer hook instead of the useState hook. 
 
 I also rewrote some code functionality in order to make it easier for me to read, such as dividing the original "todoList" from an array of "Todo" items to be an object that contained two "Todo" arrays (active: Todo[], complete: Todo[]).
