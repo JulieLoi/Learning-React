@@ -27,6 +27,7 @@ const Editor: React.FC<IEditorProps> = ({ state, dispatch }) => {
             <MDEditor    
                 value={currentNote.body}
                 onChange={(value?: string) => { dispatch({ type: NotesEnum.UpdateNoteBody, payload: value }) }}
+                className={styles["mdeditor"]}
                 preview={"live"}
                 height={"100%"}
                 previewOptions={{
@@ -34,7 +35,6 @@ const Editor: React.FC<IEditorProps> = ({ state, dispatch }) => {
                 }}
                textareaProps={{
                     placeholder: "Please enter Markdown text...",
-
                 }}
             />
         </section>

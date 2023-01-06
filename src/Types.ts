@@ -3,6 +3,7 @@ export type HomeCard = {
     id: string,
     image: string,
     title: string,
+    isSolo: boolean,
     description: string,
     projectLink: string,
 }
@@ -43,7 +44,7 @@ export type ExperienceCard = {
     price: number,
     imageUrl: string,
     stats: {
-        rating: number,
+        rating: string,
         reviewCount: number,
     }
     location: string,

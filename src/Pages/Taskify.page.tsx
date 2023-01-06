@@ -13,7 +13,7 @@ import { TaskifyEnum } from "../Enums";
 const Taskify = () => {
 
     // Input Field - Create Todo
-    const [todo, setTodo] = useState<string>(""); 
+    const [todoValue, setTodo] = useState<string>(""); 
     
     // Todo Lists (active, complete)
     let initialState: TodoLists = { active: [], complete: [] };
@@ -38,8 +38,8 @@ const Taskify = () => {
     // Handles Creating a Todo Item
     const createToDoItem = (e: React.FormEvent): void => {
         e.preventDefault();
-        if (todo) {
-            const newToDo = { id: faker.datatype.uuid(), todo: todo, isDone: false, isEdit: false };
+        if (todoValue) {
+            const newToDo = { id: faker.datatype.uuid(), todo: todoValue, isDone: false, isEdit: false };
             todoListsDispatch({ type: TaskifyEnum.AddToDoItem, todoItem: newToDo });
             setTodo("");
         }
@@ -51,7 +51,7 @@ const Taskify = () => {
             <div className={styles["taskify-page"]}>
                 <span className={styles["heading"]}>Taskify</span>
                 <InputField 
-                    todo={todo}
+                    todo={todoValue}
                     setTodo={setTodo}
                     createToDoItem={createToDoItem}
                     setIsDraggable={setIsDraggable}

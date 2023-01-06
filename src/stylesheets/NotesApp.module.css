@@ -63,7 +63,11 @@
     height: auto;
     margin: 0.75rem 1.5rem 0.75rem 0.75rem;
 }
-  
+
+.mdeditor {
+    word-wrap: break-word;
+}
+
 /* Sidebar Component*/
 .sidebar {
     width: 20%;

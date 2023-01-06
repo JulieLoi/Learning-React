@@ -12,7 +12,7 @@ import { jokeReducer } from "../Reducers";
 const JokesPage = () => {
 
     // States
-    const [darkMode, setDarkMode] = useState<boolean>(true);
+    const [darkMode, setDarkMode] = useState<boolean>(false);
     const [sortFilter, setSortFilter] = useState<string>("");
     const [typeFilter, setTypeFilter] = useState<string>("");
 

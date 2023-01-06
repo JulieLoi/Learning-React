@@ -16,7 +16,7 @@ const AirBnbExperiencePage = () => {
         price: parseInt(faker.commerce.price()),
         imageUrl: faker.image.image(240, 240),
         stats: {
-            rating: faker.helpers.arrayElement([0, 1, 2, 3, 4, 5]),
+            rating: ((Math.random() * 4 + 1).toFixed(1)),
             reviewCount: faker.datatype.number({ max: 500 }),
         },
         location: faker.helpers.arrayElement(["Online", faker.address.country(), faker.address.city()]),

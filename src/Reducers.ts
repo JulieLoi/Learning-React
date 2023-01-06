@@ -298,20 +298,23 @@ export const taskifyReducer = (state: TodoLists,
                 newActiveEdit = state.active.map(todo => todo.id === todoID ? { ...todo, isEdit: true } : todo );
             }
             // Complete Todo Item
-            else if (action.todoItem!.isDone) {
+            else if (todoDone) {
                 alert("You cannot edit a completed task item!");
                 return state;
             }
             // Active Todo Item -- Turn off Edit Mode, Update Todo Text
-            else {
+            else if (!todoDone && todoEdit) {
                 newActiveEdit = state.active.map(todo => todo.id === todoID ? 
                         { ...todo, todo: action.newTodoText!, isEdit: false } 
                         :
                         todo 
                     );
             }
-
+            else {
+                return state;
+            }
             return {...state, active: newActiveEdit};
+
 
         // Change Todo Item "isDone" property
         case TaskifyEnum.SetDone:

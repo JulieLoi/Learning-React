@@ -24,17 +24,17 @@ interface Props {
 const TodoItem: React.FC<Props> = ({ index, todo, todoListsDispatch, isDraggable, inputRef }) => {
 
     // Handle Todo Item Edit 
-    const [editTodo, setEditTodo] = useState<string>(todo.todo);
+    const [editTodoValue, setEditTodo] = useState<string>(todo.todo);
 
     // Handle Edit for Active Todo Item
     const handleEdit = () => {
-        todoListsDispatch({ type: TaskifyEnum.SetEdit, todoItem: todo });
+        todoListsDispatch({ type: TaskifyEnum.SetEdit, todoItem: todo, newTodoText: editTodoValue });
     }
 
     // Submit Edited Todo
-    const submitEdit = (e: React.FormEvent,) => {
+    const submitEdit = (e: React.FormEvent) => {
         e.preventDefault();
-        todoListsDispatch({ type: TaskifyEnum.SetEdit, todoItem: todo, newTodoText: editTodo });
+        todoListsDispatch({ type: TaskifyEnum.SetEdit, todoItem: todo, newTodoText: editTodoValue });
     }
 
     // Todo Item Component
@@ -47,30 +47,33 @@ const TodoItem: React.FC<Props> = ({ index, todo, todoListsDispatch, isDraggable
                         `${isDraggable ? styles["list__item"] : styles["list__item-no-hover"]} 
                         ${snapshot.isDragging ? styles["drag__list-item"] : ""}`
                     } 
-                    onSubmit={(e) => submitEdit(e)}
+                    onSubmit={(e: React.FormEvent<HTMLFormElement>) => submitEdit(e)}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     ref={provided.innerRef}
                 >
-                    <div ref={inputRef}>
+                    <div>
                         {todo.isEdit ?
                             <input 
+                                ref={inputRef}
                                 maxLength={100}
-                                value={editTodo} onChange={e => setEditTodo(e.target.value)}
+                                value={editTodoValue} onChange={e => setEditTodo(e.target.value)}
                                 className={`${styles["list__item-text"]} ${styles["list__item-edit"]}`}
-                                onSubmit={(e) => submitEdit(e)}
-                                onBlur={(e) => submitEdit(e)}
+                                onSubmit={(e: React.FormEvent<HTMLInputElement>) => submitEdit(e)}
+                                onBlur={(e: React.FocusEvent<HTMLInputElement, Element>) => submitEdit(e)}
                             />
                             :
                             <span 
                                 className={styles["list__item-text"]} 
-                                onClick={(e) => { if (e.detail === 2) handleEdit() } }
+                                onClick={(e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => { if (e.detail === 2) handleEdit() } }
                             >
                                 {todo.isDone ? <s>{todo.todo}</s> : todo.todo}
                             </span>
                         }
                         <div className={styles["icon-list"]}>
-                            <span className={styles.icon} onClick={handleEdit}><AiFillEdit /></span>
+                            <span className={styles.icon} onClick={handleEdit}>
+                                <AiFillEdit />
+                            </span>
                             <span className={styles.icon} 
                                 onClick={() => todoListsDispatch({ type: TaskifyEnum.DeleteTodo, todoItem: todo })}
                             >
