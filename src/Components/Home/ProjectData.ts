@@ -7,7 +7,7 @@ const reactFactsProject: HomeCard = {
     title: "React Facts",
     isSolo: false,
     description: "A static React page that serves as a basic introduction to JSX, custom components, and CSS styling in React.",
-    projectLink: "/learning-react/react-facts",
+    projectLink: "react-facts",
 }
 
 const digitalBusinessCardProject: HomeCard = {
@@ -16,7 +16,7 @@ const digitalBusinessCardProject: HomeCard = {
     title: "Digital Business Card",
     isSolo: true,
     description: "A simple mockup of a business card using a form to implement information that can be exported as an image.",
-    projectLink: "/learning-react/digital-business-card"
+    projectLink: "digital-business-card"
 }
 
 const jokesProject: HomeCard = {
@@ -25,7 +25,7 @@ const jokesProject: HomeCard = {
     title: "Jokes and Puns",
     isSolo: true,
     description: "A page with preloaded jokes and puns with a filter built with React Bootstrap components.",
-    projectLink: "/learning-react/jokes-puns"
+    projectLink: "jokes-puns"
 }
 
 
@@ -35,7 +35,7 @@ const airbnbProject: HomeCard = {
     title: "Airbnb Experience",
     isSolo: false,
     description: "A clone of Airbnb Experiences using randomized, fake data to create the `Online Experiences`.",
-    projectLink: "/learning-react/airbnb-experiences"
+    projectLink: "airbnb-experiences"
 }
 
 const travelJournalProject: HomeCard = {
@@ -44,7 +44,7 @@ const travelJournalProject: HomeCard = {
     title: "Travel Journal",
     isSolo: true,
     description: "A travel journal that contains three travel logs to famous locations around the world.",
-    projectLink: "/learning-react/travel-journal"
+    projectLink: "travel-journal"
 }
 
 const memeGeneratorProject: HomeCard = {
@@ -53,7 +53,7 @@ const memeGeneratorProject: HomeCard = {
     title: "Meme Generator",
     isSolo: false,
     description: "A simple meme generator that demonstrates the interactive features of React.",
-    projectLink: "/learning-react/meme-generator"
+    projectLink: "meme-generator"
 }
 
 const notesAppProject: HomeCard = {
@@ -62,7 +62,7 @@ const notesAppProject: HomeCard = {
     title: "Markdown Notes",
     isSolo: false,
     description: "A markdown note application that stores notes, which can be used for markdown.",
-    projectLink: "/learning-react/notes-app"
+    projectLink: "notes-app"
 }
 
 
@@ -72,7 +72,7 @@ const tenziesProject: HomeCard = {
     title: "Tenzies",
     isSolo: false,
     description: "A dice game where you attempt to get all ten dice to have the same number in order to win.",
-    projectLink: "/learning-react/tenzies"
+    projectLink: "tenzies"
 }
 
 
@@ -82,7 +82,7 @@ const quizzicalProject: HomeCard = {
     title: "Quizzical",
     isSolo: true,
     description: "A trivia quiz with randomized questions of a selected difficulty, category, and type.",
-    projectLink: "/learning-react/quizzical/home"
+    projectLink: "quizzical/home"
 }
 
 const taskifyProject: HomeCard = {
@@ -91,7 +91,7 @@ const taskifyProject: HomeCard = {
     title: "Taskify",
     isSolo: false,
     description: "A todo list page that where you create tasks that can be marked 'active' or 'incomplete'.",
-    projectLink: "/learning-react/taskify"
+    projectLink: "taskify"
 }
 
 

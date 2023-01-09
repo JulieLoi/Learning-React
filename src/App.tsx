@@ -23,7 +23,7 @@ function App() {
     return (
         <>
             <div className="navbar">
-                <div className="home-container" onClick={() => navigate("/learning-react/home")}>
+                <div className="home-container" onClick={() => navigate("/learning-react")}>
                     <AiOutlineHome 
                         className="icon"
                     />
@@ -33,7 +33,7 @@ function App() {
                     <img src={logo} alt="react logo" className="react__logo" />
                     <span className="react__text">Learning React</span>
                 </div>
-                <div className="home-container invisible" onClick={() => navigate("/learning-react/home")}>
+                <div className="home-container invisible" onClick={() => navigate("/learning-react")}>
                     <AiOutlineHome 
                         className="icon"
                     />
@@ -42,7 +42,7 @@ function App() {
             </div>
 
             <Routes>
-                <Route path="learning-react/home" element={<HomePage />}>Home Page</Route>
+                <Route path="learning-react" element={<HomePage />}>Home Page</Route>
                 <Route path="learning-react/react-facts" element={<ReactFactsPage />}>React Facts Page</Route>
                 <Route path="learning-react/digital-business-card" element={<DigitalBusinessCardPage />}>Digital Business Card Page</Route>
                 <Route path="learning-react/jokes-puns" element={<JokesPage />}>Jokes Page</Route>
@@ -53,8 +53,7 @@ function App() {
                 <Route path="learning-react/tenzies" element={<TenziesPage />}>Tenzies Page</Route>
                 <Route path="learning-react/quizzical/*" element={<QuizzicalRoutes />} />
                 <Route path="learning-react/taskify" element={<TaskifyPage />} />
-                <Route path="learning-react/*" element={ <Navigate to="/learning-react/home" /> } />
-                <Route path="learning-react/" element={ <Navigate to="/learning-react/home" /> } />
+                <Route path="learning-react/*" element={ <Navigate to="/learning-react" /> } />
             </Routes>
         </>
         //                
