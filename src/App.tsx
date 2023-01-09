@@ -54,6 +54,7 @@ function App() {
                 <Route path="learning-react/quizzical/*" element={<QuizzicalRoutes />} />
                 <Route path="learning-react/taskify" element={<TaskifyPage />} />
                 <Route path="learning-react/*" element={ <Navigate to="/learning-react/home" /> } />
+                <Route path="learning-react/" element={ <Navigate to="/learning-react/home" /> } />
             </Routes>
         </>
         //                
