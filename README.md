@@ -1,5 +1,5 @@
 # Github Pages
-This React project uses Github Pages as an environment, following the [gh-pages guide](https://github.com/gitname/react-gh-pages).
+This React project uses Github Pages as an environment, following the [gh-pages guide](https://github.com/gitname/react-gh-pages) where a `.nojekyll` file has been added to remove the need to handle a Jekyll theme.
 
 # Learning React and TypeScript
 This React project was created using the `create-react-app` command with `TypeScript` as a template.
