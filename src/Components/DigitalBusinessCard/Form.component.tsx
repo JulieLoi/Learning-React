@@ -6,6 +6,8 @@ import { CardFormEnum } from '../../Enums';
 import { BusinessCard } from '../../Types';
 import { cardFormReducer } from '../../Reducers';
 
+import restoreIcon from '../../assets/images/DigitalBusinessCard/restore.png';
+import cardIcon from '../../assets/images/DigitalBusinessCard/business-card.png';
 
 interface Props {
     dispatch: React.Dispatch<{ type: any; payload?: any; formData?: BusinessCard; }>;
@@ -66,14 +68,14 @@ const Form: React.FC<Props> = ({ dispatch, downloadFunction }) => {
                 <div className={styles["form-top-container"]}>
                     <div className={styles["form-button"]}>
                         <span>Reset Form </span>
-                        <img src="/images/DigitalBusinessCard/restore.png" alt="reset form"
+                        <img src={restoreIcon} alt="reset form"
                             className={styles["form-image"]}
                             onClick={() => formDataDispatch({type: CardFormEnum.ResetCard})}
                         />
                     </div>
                     <div className={styles["form-button"]}>
                         <span>Save Card </span>
-                        <img src="/images/DigitalBusinessCard/business-card.png" alt="business card icon" 
+                        <img src={cardIcon} alt="business card icon" 
                             className={styles["form-image"]}
                             onClick={downloadFunction}
                         />

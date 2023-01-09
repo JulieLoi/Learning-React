@@ -3,6 +3,8 @@ import { SlEnvolope, SlSocialLinkedin } from 'react-icons/sl';
 import styles from '../../stylesheets/DigitalBusinessCard.module.css';
 import { InfoSection } from '../../Types';
 
+import defaultUserIcon from '../../assets/images/DigitalBusinessCard/default_person.png';
+
 interface Props {
     info: InfoSection;
 }
@@ -11,7 +13,7 @@ const Information: React.FC<Props> = ({ info }) => {
 
     return (
         <section className={styles["info"]}>
-            <img src={info.image === "" ? "/images/DigitalBusinessCard/default_person.png" : info.image} 
+            <img src={info.image === "" ? defaultUserIcon : info.image} 
                 alt="Professional Portrait" className={styles["info__image"]} />
             <h1 className={styles["info__name"]}>
                 {info.name === "" ? "Name" : info.name}

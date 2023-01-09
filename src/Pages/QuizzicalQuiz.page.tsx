@@ -7,6 +7,9 @@ import styles from '../stylesheets/Quizzical.module.css';
 import { QuizQuestion, Quizzical, QuizzicalQuiz } from '../Types';
 import { QuizEnum, QuizzicalEnum } from "../Enums";
 
+import correctIcon from '../assets/images/Quizzical/correct.png';
+import incorrectIcon from '../assets/images/Quizzical/incorrect.png';
+
 
 interface Props {
     state: Quizzical,
@@ -54,11 +57,11 @@ const QuizzicalQuizPage: React.FC<Props> = ({ state, dispatch, quizState, quizDi
                     </h2>
                     {quizState.submittedQuiz && 
                         (q.selectedAnswer === "true" ? 
-                            <img src="/images/Quizzical/correct.png" alt="green checkmark"
+                            <img src={correctIcon} alt="green checkmark"
                                 className={styles["question-header__image"]}
                             /> 
                             :
-                            <img src="/images/Quizzical/incorrect.png" alt="red cross" 
+                            <img src={incorrectIcon} alt="red cross" 
                                 className={styles["question-header__image"]}
                             />
                         )

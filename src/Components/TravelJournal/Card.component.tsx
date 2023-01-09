@@ -2,6 +2,8 @@ import React from 'react';
 import styles from '../../stylesheets/TravelJournal.module.css';
 import { JournalCard } from '../../Types';
 
+import locationIcon from '../../assets/images/TravelJournal/location-icon.png';
+
 interface ICardProps {
     card: JournalCard;
 }
@@ -19,9 +21,7 @@ const Card: React.FC<ICardProps> = ({ card }) => {
             </div>
             <div className={styles["card-info"]}>
                 <div className={styles["card-info-top"]}>
-                    <img src="/images/TravelJournal/location-icon.png" alt="location icon" 
-                        className={styles["location-icon"]}
-                    />
+                    <img src={locationIcon} alt="location icon" className={styles["location-icon"]} />
                     <span className={styles["card-info__location-country"]}>{card.location.toUpperCase()}</span>
                     <a href={card.googleMapsUrl} target="_blank" rel="noreferrer"
                         className={styles["card-info__location-url"]}

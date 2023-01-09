@@ -6,20 +6,18 @@ import InputField from "../components/Taskify/InputField.component";
 import TodoList from "../components/Taskify/TodoList.component";
 import styles from '../stylesheets/Taskify.module.css';
 
-import { TodoLists } from "../Types";
+import { Todo, TodoLists } from "../Types";
 import { taskifyReducer } from "../Reducers";
 import { TaskifyEnum } from "../Enums";
 
-const Taskify = () => {
+const TaskifyPage = () => {
 
     // Input Field - Create Todo
     const [todoValue, setTodo] = useState<string>(""); 
     
     // Todo Lists (active, complete)
-    let initialState: TodoLists = { active: [], complete: [] };
-    if (localStorage.getItem("todoList") !== undefined) {
-        initialState = JSON.parse(localStorage.getItem("todoList")!);
-    }
+    let savedLists: string | null = localStorage.getItem('todoList');       // Check for Previously Saved Todo Lists
+    let initialState: TodoLists = savedLists ? JSON.parse(savedLists) : { active: [], complete: [] };
     const [todoListsState, todoListsDispatch] = useReducer(taskifyReducer, initialState);
 
     // Saves Todo Lists
@@ -66,4 +64,4 @@ const Taskify = () => {
     )
 };
 
-export default Taskify;
+export default TaskifyPage;

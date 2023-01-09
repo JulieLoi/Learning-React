@@ -41,17 +41,18 @@ const TodoList: React.FC<Props> = ({ todoLists, todoListsDispatch, isDraggable }
                             Active Tasks
                         </span>
 
-
-                            {todoLists.active.map((item, index) => 
-                                <TodoItem 
-                                    key={item.id}
-                                    index={index}
-                                    todo={item} 
-                                    todoListsDispatch={todoListsDispatch}
-                                    isDraggable={isDraggable}
-                                    inputRef={inputRef}
-                                />
-                            )}
+                     
+                        {todoLists.active.map((item, index) => 
+                            <TodoItem 
+                                key={item.id}
+                                index={index}
+                                todo={item} 
+                                todoListsDispatch={todoListsDispatch}
+                                isDraggable={isDraggable}
+                                inputRef={inputRef}
+                            />
+                        )}
+                            
                         
                         {provided.placeholder}
                     </div>
@@ -87,9 +88,60 @@ const TodoList: React.FC<Props> = ({ todoLists, todoListsDispatch, isDraggable }
                     </div>
                 )}
             </Droppable>
+           
         </div>
     )
 }
 
+
 export default TodoList;
 
+
+
+/*
+    {todoLists.active.map((item, index) => 
+        <TodoItem 
+            key={item.id}
+            index={index}
+            todo={item} 
+            todoListsDispatch={todoListsDispatch}
+            isDraggable={isDraggable}
+            inputRef={inputRef}
+        />
+    )}
+
+*/
+
+
+
+/*
+ <Droppable droppableId="completed-list">
+                {(provided, snapshot) => (
+                    <div 
+                        className={`${styles["task-container"]} 
+                            ${snapshot.isDraggingOver ? styles["drag__completed"] : styles.completed} `} 
+                        ref={provided.innerRef} 
+                        {...provided.droppableProps}
+                    >
+                        <span className={`${styles["list-heading"]} 
+                            ${snapshot.isDraggingOver ? styles["drag__completed-lh"] : ""} `}
+                        >
+                            Completed Tasks
+                        </span>
+
+                        {todoLists.complete.map((item, index) => 
+                            <TodoItem 
+                                key={item.id}
+                                index={index}
+                                todo={item} 
+                                todoListsDispatch={todoListsDispatch}
+                                isDraggable={isDraggable}
+                                inputRef={inputRef}
+                            />
+                        )}
+
+                        {provided.placeholder}
+                    </div>
+                )}
+            </Droppable>
+*/

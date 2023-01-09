@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from '../../stylesheets/ReactFacts.module.css';
 
+import logo from '../../assets/images/ReactFacts/react-logo-small.png'
+
 interface Props {
     darkMode: boolean;
     setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
@@ -10,7 +12,7 @@ const Navbar: React.FC<Props> = ({ darkMode, setDarkMode })  => {
     return (
         <nav className={`${styles["nav"]} ${darkMode ? styles["nav__dark"] : styles["nav__light"]}`}>
             <img 
-                src="./images/ReactFacts/react-logo-small.png" alt="small react logo" 
+                src={logo} alt="small react logo" 
                 className={styles["nav__logo"]}
             />
             <h3 className={`${styles["nav__title"]} ${darkMode ? styles["nav__title-dark"] : styles["nav__title-light"]}`}>

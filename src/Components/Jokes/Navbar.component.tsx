@@ -1,6 +1,8 @@
 import { Navbar } from 'react-bootstrap';
 import styles from '../../stylesheets/Jokes.module.css';
 
+import jesterIcon from '../../assets/images/Jokes/buffoon.png'
+
 interface Props {
     darkMode: boolean;
     setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
@@ -12,9 +14,7 @@ const NavBar: React.FC<Props> = ({ darkMode, setDarkMode }) => {
             className={`${styles["nav"]}`}
         >
             <div className={styles["nav-title"]}>
-                <img src="/images/Jokes/buffoon.png" alt="jester hat"
-                    className={styles["nav-title__icon"]}
-                />
+                <img src={jesterIcon} alt="jester hat" className={styles["nav-title__icon"]} />
                 <Navbar.Brand className={styles["nav-title__text"]}>Jokes and Puns</Navbar.Brand>
             </div>
             <div className={styles["nav-switch"]}>

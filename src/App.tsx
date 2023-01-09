@@ -12,27 +12,28 @@ import MemeGeneratorPage from './Pages/MemeGenerator.page';
 import NotesAppPage from './Pages/NotesApp.page';
 import TenziesPage from './Pages/Tenzies.page';
 import QuizzicalRoutes from './Routes/QuizzicalRoutes';
-import Taskify from './Pages/Taskify.page';
+import TaskifyPage from './Pages/Taskify.page';
+
+import logo from './assets/logo192.png';
 
 
 function App() {
     let navigate = useNavigate();
 
-
     return (
         <>
             <div className="navbar">
-                <div className="home-container" onClick={() => navigate("/home")}>
+                <div className="home-container" onClick={() => navigate("/Learning-React/home")}>
                     <AiOutlineHome 
                         className="icon"
                     />
                     <span className="home-text">Home</span>
                 </div>
                 <div className="react__container">
-                    <img src="/logo192.png" alt="react logo" className="react__logo" />
+                    <img src={logo} alt="react logo" className="react__logo" />
                     <span className="react__text">Learning React</span>
                 </div>
-                <div className="home-container invisible" onClick={() => navigate("/home")}>
+                <div className="home-container invisible" onClick={() => navigate("/Learning-React/home")}>
                     <AiOutlineHome 
                         className="icon"
                     />
@@ -41,20 +42,21 @@ function App() {
             </div>
 
             <Routes>
-                <Route path="/home" element={<HomePage />}>HOME PAGE</Route>
-                <Route path="/reactfacts" element={<ReactFactsPage />}>React Facts Page</Route>
-                <Route path="/digitalbusinesscard" element={<DigitalBusinessCardPage />}>Digital Business Card Page</Route>
-                <Route path="/jokes" element={<JokesPage />}>Jokes Page</Route>
-                <Route path="/airbnb" element={<AirBnbExperiencePage />}>AirBnb Page</Route>
-                <Route path="/traveljournal" element={<TravelJournalPage />}>Travel Journal Page</Route>
-                <Route path="/memegenerator" element={<MemeGeneratorPage />}>Meme Generator Page</Route>
-                <Route path="/notesapp" element={<NotesAppPage />}>Notes App Page</Route>
-                <Route path="/tenzies" element={<TenziesPage />}>Tenzies Page</Route>
-                <Route path="/quizzical/*" element={<QuizzicalRoutes />} />
-                <Route path="/taskify" element={<Taskify />} />
-                <Route path="*" element={ <Navigate to="/home" /> } />
+                <Route path="Learning-React/home" element={<HomePage />}>Home Page</Route>
+                <Route path="Learning-React/react-facts" element={<ReactFactsPage />}>React Facts Page</Route>
+                <Route path="Learning-React/digital-business-card" element={<DigitalBusinessCardPage />}>Digital Business Card Page</Route>
+                <Route path="Learning-React/jokes-puns" element={<JokesPage />}>Jokes Page</Route>
+                <Route path="Learning-React/airbnb-experiences" element={<AirBnbExperiencePage />}>AirBnb Page</Route>
+                <Route path="Learning-React/travel-journal" element={<TravelJournalPage />}>Travel Journal Page</Route>
+                <Route path="Learning-React/meme-generator" element={<MemeGeneratorPage />}>Meme Generator Page</Route>
+                <Route path="Learning-React/notes-app" element={<NotesAppPage />}>Notes App Page</Route>
+                <Route path="Learning-React/tenzies" element={<TenziesPage />}>Tenzies Page</Route>
+                <Route path="Learning-React/quizzical/*" element={<QuizzicalRoutes />} />
+                <Route path="Learning-React/taskify" element={<TaskifyPage />} />
+                <Route path="learning-react/*" element={ <Navigate to="home" /> } />
             </Routes>
         </>
+        //                
 
     )
 }

@@ -163,7 +163,7 @@
 .main {
     flex: 1 1 auto;
     padding: 3rem 2rem;
-    background: url("/public/images/ReactFacts/react-logo-side.png") no-repeat right center;
+    background: url("../assets/images/ReactFacts/react-logo-side.png") no-repeat right center;
     background-size: 15rem;
 }
 

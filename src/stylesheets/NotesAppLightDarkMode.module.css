@@ -41,7 +41,7 @@
     width: 2.75rem;
     height: 42px;
 
-    background-image: url('../../public/images/NotesApp/sun.png');
+    background-image: url('../assets/images/NotesApp/sun.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -50,7 +50,7 @@
 .toggle input[type='checkbox']:checked ~ label::after {
     background-color: "transparent";
     transform: translateX(50px);
-    background-image: url('../../public/images/NotesApp/moon.png');
+    background-image: url('../assets/images/NotesApp/moon.png');
     background-repeat: no-repeat;
     background-size: cover;
 }

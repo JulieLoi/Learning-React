@@ -73,7 +73,7 @@ const HomePage = () => {
                         autoPlaySpeed={10000}
                     >
                         {cards.map(card => <Card key={card.id} card={card} />)}
-                    </Carousel>;
+                    </Carousel>
             </div>
         </div>
     );

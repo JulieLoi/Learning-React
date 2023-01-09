@@ -3,6 +3,9 @@ import { Button, Card } from 'react-bootstrap';
 import styles from '../../stylesheets/Jokes.module.css';
 import { Joke } from '../../Types';
 
+import upvoteIcon from '../../assets/images/Jokes/upvote.png';
+import downvoteIcon from '../../assets/images/Jokes/downvote.png';
+
 interface Props {
     joke: Joke,
     darkMode: boolean,
@@ -48,11 +51,11 @@ const JokeItem: React.FC<Props> = ({ joke, darkMode }) => {
                 >
                     <div className={styles["joke-vote"]}>
                         <span className={styles["upvotes"]}>
-                            <img src="/images/Jokes/upvote.png" alt="upvote" />
+                            <img src={upvoteIcon} alt="upvote" />
                             {upvotes}
                         </span>
                         <span className={styles["downvotes"]}>
-                            <img src="/images/Jokes/downvote.png" alt="downvote" />
+                            <img src={downvoteIcon} alt="downvote" />
                             {downvotes}
                         </span>
                     </div>

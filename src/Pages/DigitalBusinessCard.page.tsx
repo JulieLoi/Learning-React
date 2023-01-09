@@ -39,20 +39,23 @@ const DigitalBusinessCardPage: React.FC = () => {
     const [cardState, cardDispatch] = useReducer(cardFormReducer, initialState);
 
     // Download PNG
-    const ref = useRef<HTMLDivElement>(null)
+    const cardRef = useRef<HTMLDivElement>(null)
     const saveImage = useCallback(() => {
-        if (ref.current === null) { return }
-        toPng(ref.current, { cacheBust: true, })
+        if (cardRef.current === null) { return }
+        toPng(cardRef.current, { cacheBust: true, })
           .then((dataUrl) => {
-            console.log(ref.current)
+            console.log(cardRef.current)
 
             const link = document.createElement('a');
-            link.download = 'business-card.png';
+            link.download = 'Business-Card.png';
             link.href = dataUrl;
             link.click();
           })
-          .catch((err) => { console.log(err) })
-    }, [ref]);
+          .catch((err) => { 
+            console.error('Oops, something went wrong!', err);
+            window.alert("You are missing a working 'Image Link'!");
+        })
+    }, [cardRef]);
 
     // Digital Business Card Page
     return (
@@ -63,10 +66,9 @@ const DigitalBusinessCardPage: React.FC = () => {
                     downloadFunction={saveImage}
                 />
             </div>
-            <div className={`${styles["card-section"]}`}
-            >
-                <div ref={ref}>
-                    <div className={styles["card"]}>
+            <div className={`${styles["card-section"]}`}>
+                <div ref={cardRef}>
+                    <div className={styles["card"]} >
                         <Information info={cardState.info} />
                         <Description desc={cardState.desc} />
                         <Footer footer={cardState.footer} />    

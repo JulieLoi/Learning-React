@@ -1,9 +1,11 @@
 import styles from '../../stylesheets/AirBnbExperience.module.css';
 
+import photoGrid from '../../assets/images/AirBnbExperience/photo-grid.png'
+
 const Hero = () => {
     return (
         <section className={styles["hero"]}>
-            <img src="/images/AirbnbExperience/photo-grid.png" alt="experiences" 
+            <img src={photoGrid} alt="experiences" 
                 className={styles["hero__photo-grid"]}
             />
             <h1 className={styles["hero__title"]}>Online Experiences</h1>

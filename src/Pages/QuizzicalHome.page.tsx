@@ -48,7 +48,7 @@ const QuizzicalHomePage: React.FC<Props> = ({ state, dispatch, getQuestions }) =
                         onClick={() => {
                             getQuestions();
                             setLoading(true);
-                            setTimeout(() => navigate("/quizzical/quiz"), 5000);
+                            setTimeout(() => navigate("/Learning-React/quizzical/quiz"), 5000);
                         }}
                     >
                         Start Quiz
@@ -61,8 +61,6 @@ const QuizzicalHomePage: React.FC<Props> = ({ state, dispatch, getQuestions }) =
                     <h1 className={styles["loader__text"]}>Loading</h1>
                 </div>
             }
-
-            
         </div>
     );
 };
