@@ -6,7 +6,7 @@ import InputField from "../components/Taskify/InputField.component";
 import TodoList from "../components/Taskify/TodoList.component";
 import styles from '../stylesheets/Taskify.module.css';
 
-import { Todo, TodoLists } from "../Types";
+import { TodoLists } from "../Types";
 import { taskifyReducer } from "../Reducers";
 import { TaskifyEnum } from "../Enums";
 
