@@ -88,6 +88,7 @@ const Meme = () => {
                             <MemeText text={meme.topText} location={"top"} />
                             <MemeText text={meme.bottomText} location={"bottom"} />
                         </div>
+                        <br />
                         <button onClick={downloadMeme} className={`${styles["meme-button"]} ${styles["download-button"]}`}>
                             Save Meme
                         </button>

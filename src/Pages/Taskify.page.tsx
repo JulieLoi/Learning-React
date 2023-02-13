@@ -16,8 +16,8 @@ const TaskifyPage = () => {
     const [todoValue, setTodo] = useState<string>(""); 
     
     // Todo Lists (active, complete)
-    let savedLists: string | null = localStorage.getItem('todoList');       // Check for Previously Saved Todo Lists
-    let initialState: TodoLists = savedLists ? JSON.parse(savedLists) : { active: [], complete: [] };
+    let savedLists: boolean = (localStorage.getItem('todoList') === null ? false : true);       // Check for Previously Saved Todo Lists
+    let initialState: TodoLists = savedLists ? JSON.parse(localStorage.getItem('todoList')!) : { active: [], complete: [] };
     const [todoListsState, todoListsDispatch] = useReducer(taskifyReducer, initialState);
 
     // Saves Todo Lists
