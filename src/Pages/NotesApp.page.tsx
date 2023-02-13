@@ -15,7 +15,7 @@ import { notesReducer } from "../Reducers";
 const NotesAppPage = () => {
 
     // Notes App State
-    let initialState: NotesApp = (localStorage.getItem("notes") !== undefined 
+    let initialState: NotesApp = (localStorage.getItem("notes") 
         && JSON.parse(localStorage.getItem("notes")!).length !== 0 ) ? 
         {
             notes: JSON.parse(localStorage.getItem("notes")!),
@@ -43,7 +43,7 @@ const NotesAppPage = () => {
     // Notes App Page
     return (
         <main className={`${styles["notes-app-page"]} ${state.darkMode ? colorStyles["dm"] : colorStyles["lm"]}`}>
-            {state.notes.length > 0 ?
+            {state.notes && state.notes.length > 0 ?
                 <Split 
                     sizes={[30, 70]}
                     direction="horizontal"
