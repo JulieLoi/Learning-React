@@ -42,7 +42,7 @@ const TodoList: React.FC<Props> = ({ todoLists, todoListsDispatch, isDraggable }
                         </span>
 
                      
-                        {todoLists.active.map((item, index) => 
+                        {todoLists.active && todoLists.active.map((item, index) => 
                             <TodoItem 
                                 key={item.id}
                                 index={index}
@@ -73,7 +73,7 @@ const TodoList: React.FC<Props> = ({ todoLists, todoListsDispatch, isDraggable }
                             Completed Tasks
                         </span>
 
-                        {todoLists.complete.map((item, index) => 
+                        {todoLists.complete && todoLists.complete.map((item, index) => 
                             <TodoItem 
                                 key={item.id}
                                 index={index}
