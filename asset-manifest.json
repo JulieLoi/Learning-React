@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/learning-react/static/css/main.37184a4d.css",
-    "main.js": "/learning-react/static/js/main.1fb0dc5c.js",
+    "main.css": "/learning-react/static/css/main.213d4688.css",
+    "main.js": "/learning-react/static/js/main.cfe673c2.js",
     "static/media/photo-grid.png": "/learning-react/static/media/photo-grid.294d59b66b94e0e456cf.png",
     "static/media/instagram.png": "/learning-react/static/media/instagram.e719d8b29f452a16302d.png",
     "static/media/sun.png": "/learning-react/static/media/sun.63b6ae7294e3139a8a0c.png",
@@ -22,11 +22,11 @@
     "static/media/revicons.ttf": "/learning-react/static/media/revicons.57fd05d4ae650374c8de.ttf",
     "static/media/revicons.woff": "/learning-react/static/media/revicons.e8746a624ed098489406.woff",
     "index.html": "/learning-react/index.html",
-    "main.37184a4d.css.map": "/learning-react/static/css/main.37184a4d.css.map",
-    "main.1fb0dc5c.js.map": "/learning-react/static/js/main.1fb0dc5c.js.map"
+    "main.213d4688.css.map": "/learning-react/static/css/main.213d4688.css.map",
+    "main.cfe673c2.js.map": "/learning-react/static/js/main.cfe673c2.js.map"
   },
   "entrypoints": [
-    "static/css/main.37184a4d.css",
-    "static/js/main.1fb0dc5c.js"
+    "static/css/main.213d4688.css",
+    "static/js/main.cfe673c2.js"
   ]
 }
